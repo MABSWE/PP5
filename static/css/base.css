@@ -12,3 +12,18 @@ footer .fa {
     margin-right: 8px;
 }
 
+/* Standardstil för större skärmar */
+p.lead {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+/* Phones (small screens) */
+@media (max-width: 768px) {
+    p.lead {
+        font-size: 1rem;
+        line-height: 1.2;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
