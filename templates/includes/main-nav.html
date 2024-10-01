@@ -1,8 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="{% static 'img/logo-small.png' %}" alt="Brand Logo">
-            style="margin-left: 20px; width: 90px; height: 90px;">
+        <!-- Add logo here later -->
         <span class="h1 mb-0" style="font-size: 1.4rem;">Skönhetsbutiken</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -14,8 +13,16 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Shop</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Shop
+                </a>
+                <div class="dropdown-menu" aria-labelledby="shopDropdown">
+                    <a class="dropdown-item" href="#">Lashes</a>
+                    <a class="dropdown-item" href="#">Glue</a>
+                    <a class="dropdown-item" href="#">Other</a>
+                    <a class="dropdown-item" href="#">Special Offers</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
