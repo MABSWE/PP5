@@ -29,11 +29,28 @@ body {
     float: none;
 }
 
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Se till att navbaren är över andra element */
+}
+
 /* Hero */
+.hero {
+
+    position: relative;
+}
+
 .display-4 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 300;
     line-height: 1.2;
+    color: #fff;
+}
+
+p.lead {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #fff;
 }
 
 /* Footer */
