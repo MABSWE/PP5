@@ -5,9 +5,19 @@ body {
 }
 
 /* Navbar */
+
+/* Centered icons*/
+.nav-link > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-link > div > i {
+    margin-bottom: 5px;
+}
 .navbar {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    
 }
 
 .navbar-nav {
