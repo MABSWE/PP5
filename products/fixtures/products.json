@@ -1,0 +1,213 @@
+[
+    {
+      "pk": 1,
+      "model": "products.product",
+      "fields": {
+        "sku": "LASH001",
+        "name": "Luxury Lashes",
+        "description": "Premium lashes for a glamorous look.",
+        "price": 19.99,
+        "category": 1,
+        "rating": 4.5,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lashes/luxury_lashes.jpg"
+      }
+    },
+    {
+      "pk": 2,
+      "model": "products.product",
+      "fields": {
+        "sku": "LASH002",
+        "name": "Everyday Lashes",
+        "description": "Perfect lashes for an everyday natural look.",
+        "price": 14.99,
+        "category": 1,
+        "rating": 4.2,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lashes/everyday_lashes.jpg"
+      }
+    },
+    {
+      "pk": 3,
+      "model": "products.product",
+      "fields": {
+        "sku": "LASH003",
+        "name": "Party Lashes",
+        "description": "Bold lashes for special occasions.",
+        "price": 22.99,
+        "category": 1,
+        "rating": 4.7,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lashes/party_lashes.jpg"
+      }
+    },
+    {
+      "pk": 4,
+      "model": "products.product",
+      "fields": {
+        "sku": "LASH004",
+        "name": "Classic Lashes",
+        "description": "Timeless lashes for any event.",
+        "price": 17.99,
+        "category": 1,
+        "rating": 4.6,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lashes/classic_lashes.jpg"
+      }
+    },
+    {
+      "pk": 5,
+      "model": "products.product",
+      "fields": {
+        "sku": "LASH005",
+        "name": "Volume Lashes",
+        "description": "Add volume and drama to your lashes.",
+        "price": 24.99,
+        "category": 1,
+        "rating": 4.8,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lashes/volume_lashes.jpg"
+      }
+    },
+    {
+      "pk": 6,
+      "model": "products.product",
+      "fields": {
+        "sku": "GLUE001",
+        "name": "Quick Dry Lash Glue",
+        "description": "Long-lasting lash glue for all-day wear.",
+        "price": 9.99,
+        "category": 2,
+        "rating": 4.3,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lash_glue/quick_dry_glue.jpg"
+      }
+    },
+    {
+      "pk": 7,
+      "model": "products.product",
+      "fields": {
+        "sku": "GLUE002",
+        "name": "Waterproof Lash Glue",
+        "description": "Keep your lashes on even in wet conditions.",
+        "price": 11.99,
+        "category": 2,
+        "rating": 4.4,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lash_glue/waterproof_glue.jpg"
+      }
+    },
+    {
+      "pk": 8,
+      "model": "products.product",
+      "fields": {
+        "sku": "GLUE003",
+        "name": "Clear Lash Glue",
+        "description": "Invisible finish for a flawless look.",
+        "price": 8.99,
+        "category": 2,
+        "rating": 4.5,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lash_glue/clear_glue.jpg"
+      }
+    },
+    {
+      "pk": 9,
+      "model": "products.product",
+      "fields": {
+        "sku": "GLUE004",
+        "name": "Strong Hold Lash Glue",
+        "description": "Extra strong hold for heavy lashes.",
+        "price": 12.99,
+        "category": 2,
+        "rating": 4.6,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lash_glue/strong_hold_glue.jpg"
+      }
+    },
+    {
+      "pk": 10,
+      "model": "products.product",
+      "fields": {
+        "sku": "GLUE005",
+        "name": "Sensitive Lash Glue",
+        "description": "Gentle lash glue for sensitive eyes.",
+        "price": 10.99,
+        "category": 2,
+        "rating": 4.1,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "lash_glue/sensitive_glue.jpg"
+      }
+    },
+    {
+      "pk": 11,
+      "model": "products.product",
+      "fields": {
+        "sku": "SKIN001",
+        "name": "Hydrating Face Cream",
+        "description": "Moisturize your skin with this hydrating cream.",
+        "price": 29.99,
+        "category": 3,
+        "rating": 4.7,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "skincare/hydrating_cream.jpg"
+      }
+    },
+    {
+      "pk": 12,
+      "model": "products.product",
+      "fields": {
+        "sku": "SKIN002",
+        "name": "Brightening Serum",
+        "description": "Improve your complexion with our brightening serum.",
+        "price": 34.99,
+        "category": 3,
+        "rating": 4.8,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "skincare/brightening_serum.jpg"
+      }
+    },
+    {
+      "pk": 13,
+      "model": "products.product",
+      "fields": {
+        "sku": "SKIN003",
+        "name": "Anti-Aging Cream",
+        "description": "Reduce fine lines with our anti-aging formula.",
+        "price": 39.99,
+        "category": 3,
+        "rating": 4.9,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "skincare/anti_aging_cream.jpg"
+      }
+    },
+    {
+      "pk": 14,
+      "model": "products.product",
+      "fields": {
+        "sku": "SKIN004",
+        "name": "Soothing Face Mask",
+        "description": "Calm and hydrate irritated skin.",
+        "price": 24.99,
+        "category": 3,
+        "rating": 4.5,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "skincare/soothing_mask.jpg"
+      }
+    },
+    {
+      "pk": 15,
+      "model": "products.product",
+      "fields": {
+        "sku": "SKIN005",
+        "name": "Pore Minimizing Toner",
+        "description": "Reduce the appearance of pores with our toner.",
+        "price": 19.99,
+        "category": 3,
+        "rating": 4.6,
+        "image_url": "https://via.placeholder.com/300",
+        "image": "skincare/pore_minimizer.jpg"
+      }
+    }
+  ]
+  
