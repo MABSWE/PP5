@@ -83,3 +83,7 @@ p.lead {
     }
     
 }
+/* Container for content to avoid overlapping with navbar */
+.container {
+    margin-top: 200px !important; 
+}

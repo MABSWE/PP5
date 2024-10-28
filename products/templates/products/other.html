@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Other</h1>
+    <div class="product-list">
+        {% for other in other %} 
+        <div class="product-item">
+            <h2>{{ other.name }}</h2> 
+            <p>{{ other.description }}</p>
+            <p>Price: ${{ other.price }}</p> 
+            <a href="{% url 'product_detail' other.id %}">View Details</a>
+        </div>
+        {% empty %}
+        <p>No other products available.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
