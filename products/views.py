@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .models import Product
 
 # Skapa dina vyer här.
-
 def all_products(request):
     """ Show products and searching and sorting queries """
     products = Product.objects.all()
@@ -34,3 +33,7 @@ def other(request):
         'other': other_products,
     }
     return render(request, 'products/other.html', context)
+
+def contact(request):
+    """ Visa kontaktsidan med Google Maps och kontaktinformation """
+    return render(request, 'products/contact.html')

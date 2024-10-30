@@ -8,4 +8,5 @@ urlpatterns = [
     path('lashes/', views.lashes, name='lashes'), 
     path('glue/', views.glue, name='glue'),
     path('other/', views.other, name='other'), 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('contact/', views.contact, name='contact'), # Ny väg för kontakt
+]
