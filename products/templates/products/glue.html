@@ -4,16 +4,23 @@
 <div class="container mt-5">
     <h1>Glue</h1>
     <div class="product-list">
-        {% for glue in glue %} 
+        {% for glue_product in glue %}
         <div class="product-item">
-            <h2>{{ glue.name }}</h2> 
-            <p>{{ glue.description }}</p> 
-            <p>Price: ${{ glue.price }}</p> 
-            <a href="{% url 'product_detail' glue.id %}">View Details</a>  
+            <h2>{{ glue_product.name }}</h2>
+            <p>{{ glue_product.description }}</p>
+            <p>Price: ${{ glue_product.price }}</p>
+            {% if glue_product.image %}
+            <p>Image URL: {{ glue_product.image.url }}</p>
+            <img src="{{ glue_product.image.url }}" alt="{{ glue_product.name }}" style="width: 100%; height: auto;" />
+            {% else %}
+            <p>No image found.</p>
+            {% endif %}
+            <a href="{% url 'glue_detail' glue_product.id %}">View Details</a>
         </div>
         {% empty %}
-        <p>No glue products available.</p> 
+        <p>No glue products available.</p>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
+<img src="https://via.placeholder.com/300" alt="Placeholder image" style="width: 100%; height: auto;" />

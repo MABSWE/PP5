@@ -2,14 +2,21 @@
 {% load static %}
 {% block content %}
 <div class="container mt-5">
-    <h1>Other</h1>
+    <h1>Other Products</h1>
     <div class="product-list">
-        {% for other in other %} 
+        {% for other_product in other %}
         <div class="product-item">
-            <h2>{{ other.name }}</h2> 
-            <p>{{ other.description }}</p>
-            <p>Price: ${{ other.price }}</p> 
-            <a href="{% url 'product_detail' other.id %}">View Details</a>
+            <h2>{{ other_product.name }}</h2>
+            <p>{{ other_product.description }}</p>
+            <p>Price: ${{ other_product.price }}</p>
+            {% if other_product.image %}
+            <p>Image URL: {{ other_product.image.url }}</p>
+            <img src="{{ other_product.image.url }}" alt="{{ other_product.name }}"
+                style="width: 100%; height: auto;" />
+            {% else %}
+            <p>No image found.</p>
+            {% endif %}
+            <a href="{% url 'other_detail' other_product.id %}">View Details</a>
         </div>
         {% empty %}
         <p>No other products available.</p>
@@ -17,3 +24,4 @@
     </div>
 </div>
 {% endblock %}
+<img src="https://via.placeholder.com/300" alt="Placeholder image" style="width: 100%; height: auto;" />

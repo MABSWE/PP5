@@ -10,11 +10,11 @@
             <p>{{ lash.description }}</p>
             <p>Price: ${{ lash.price }}</p>
             {% if lash.image %}
-    <p>Image URL: {{ lash.image.url }}</p>  <!-- Visa URL:en för felsökning -->
-    <img src="{{ lash.image.url }}" alt="{{ lash.name }}" style="width: 100%; height: auto;"/>  <!-- Visa bilden -->
-{% else %}
-    <p>No image found.</p>
-{% endif %}
+            <p>Image URL: {{ lash.image.url }}</p>
+            <img src="{{ lash.image.url }}" alt="{{ lash.name }}" style="width: 100%; height: auto;" />
+            {% else %}
+            <p>No image found.</p>
+            {% endif %}
             <a href="{% url 'product_detail' lash.id %}">View Details</a>
         </div>
         {% empty %}
@@ -23,7 +23,4 @@
     </div>
 </div>
 {% endblock %}
-<img src="https://via.placeholder.com/300" alt="{{ lash.name }}" style="width: 100%; height: auto;"/>
-
-
-<!--FORTRSÄTT HÄR, BILDERNA DYKER INTE UPP PÅ SIDAN-->
+<img src="https://via.placeholder.com/300" alt="{{ lash.name }}" style="width: 100%; height: auto;" />

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product
 
 # Skapa dina vyer här.
@@ -12,7 +12,7 @@ def all_products(request):
 
 def lashes(request):
     """ Visa endast fransar """
-    lashes_products = Product.objects.filter(category__name='Lashes')
+    lashes_products = Product.objects.filter(category__name='lashes')
     context = {
         'lashes': lashes_products,
     }
@@ -20,7 +20,7 @@ def lashes(request):
 
 def glue(request):
     """ Visa endast limprodukter """
-    glue_products = Product.objects.filter(category__name='Glue')
+    glue_products = Product.objects.filter(category__name='glue')
     context = {
         'glue': glue_products,
     }
@@ -28,7 +28,7 @@ def glue(request):
 
 def other(request):
     """ Visa övriga produkter """
-    other_products = Product.objects.filter(category__name='Other')
+    other_products = Product.objects.filter(category__name='other')
     context = {
         'other': other_products,
     }
@@ -37,3 +37,30 @@ def other(request):
 def contact(request):
     """ Visa kontaktsidan med Google Maps och kontaktinformation """
     return render(request, 'products/contact.html')
+
+# Ny vy för produktdetaljer
+def product_detail(request, product_id):
+    """ Visa detaljer för en specifik produkt """
+    product = get_object_or_404(Product, id=product_id)
+    context = {
+        'product': product,
+    }
+    return render(request, 'products/product_detail.html', context)
+
+# Ny vy för limproduktdetaljer
+def glue_detail(request, product_id):
+    """ Visa detaljer för en specifik limprodukt """
+    product = get_object_or_404(Product, id=product_id, category__name='Glue')
+    context = {
+        'product': product,
+    }
+    return render(request, 'products/product_detail.html', context)
+
+# Ny vy för övriga produktdetaljer
+def other_detail(request, product_id):
+    """ Visa detaljer för en specifik produkt i kategorin Other """
+    product = get_object_or_404(Product, id=product_id, category__name='Other')
+    context = {
+        'product': product,
+    }
+    return render(request, 'products/product_detail.html', context)
