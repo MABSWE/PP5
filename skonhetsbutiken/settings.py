@@ -1,17 +1,14 @@
 import os
+from decouple import config
 
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Google Maps API key
+GOOGLE_MAPS_API_KEY = config('GOOGLE_MAPS_API_KEY')
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'h#jzac%653^0ru3_!!-95829$5j1@gbnd7$t4(1-1^9$%(92ng'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = ['8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net']
-
 
 # Application definition
 
