@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
+from django.db.models import Q
 
 # Skapa dina vyer här.
 def all_products(request):
@@ -64,3 +65,17 @@ def other_detail(request, product_id):
         'product': product,
     }
     return render(request, 'products/product_detail.html', context)
+
+# Sökfunktion för produkter
+def product_search(request):
+    """ Hanterar sökningar efter produkter """
+    query = request.GET.get('q')
+    products = Product.objects.filter(
+        Q(name__icontains=query) | Q(description__icontains=query)
+    ) if query else Product.objects.none()
+    
+    context = {
+        'products': products,
+        'query': query,
+    }
+    return render(request, 'products/search_results.html', context)
