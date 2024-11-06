@@ -1,6 +1,7 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'img/favicon-big.png' %}">
@@ -19,6 +20,22 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
+
+   <!-- Zoom-effekt för bilder i kort -->
+   <style>
+    .card {
+        overflow: hidden;
+    }
+    
+    .card-img-top {
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-img-top {
+        transform: scale(1.1);
+    }
+</style>
+
     {% block extra_css %}{% endblock %}
     {% block corejs %}
     <script src="https://kit.fontawesome.com/6f464bbc42.js" crossorigin="anonymous"></script>
@@ -34,6 +51,7 @@
     {% block extra_js %}{% endblock %}
     <title>Skönhetsbutiken {% block extra_title %}{% endblock %}</title>
 </head>
+
 <body>
     <header class="container-fluid fixed-top">
         {% include 'includes/main-nav.html' %}
@@ -74,4 +92,5 @@
     </footer>
     {% block postloadjs %}{% endblock %}
 </body>
+
 </html>
