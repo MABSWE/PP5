@@ -1,24 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Glue Products</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-    <h1>Glue</h1>
-    <div class="product-list">
+<div class="container">
+    <div class="row">
         {% for glue_product in glue %}
-        <div class="product-item">
-            <h2>{{ glue_product.name }}</h2>
-            <p>{{ glue_product.description }}</p>
-            <p>Price: ${{ glue_product.price }}</p>
-            {% if glue_product.image %}
-            <p>Image URL: {{ glue_product.image.url }}</p>
-            <img src="{{ glue_product.image.url }}" alt="{{ glue_product.name }}" style="width: 100%; height: auto;" />
-            {% else %}
-            <p>No image found.</p>
-            {% endif %}
-            <a href="{% url 'glue_detail' glue_product.id %}">View Details</a>
+        <div class="col-12 col-sm-6 col-md-4 mb-4" style="padding-top: 50px;">
+            <div class="card h-100">
+                {% if glue_product.image %}
+                    <img src="{{ glue_product.image.url }}" class="card-img-top" alt="{{ glue_product.name }}">
+                {% else %}
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ glue_product.name }}</h5>
+                    <p class="card-text">{{ glue_product.description }}</p>
+                    <p class="card-text"><strong>Price:</strong> ${{ glue_product.price }}</p>
+                    <a href="{% url 'glue_detail' glue_product.id %}" class="btn btn-success btn-block">Add to Cart</a>
+                </div>
+            </div>
         </div>
         {% empty %}
-        <p>No glue products available.</p>
+        <p>No glue products available at the moment.</p>
         {% endfor %}
     </div>
 </div>

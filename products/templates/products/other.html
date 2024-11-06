@@ -1,25 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Other Products</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-    <h1>Other Products</h1>
-    <div class="product-list">
+<div class="container">
+    <div class="row">
         {% for other_product in other %}
-        <div class="product-item">
-            <h2>{{ other_product.name }}</h2>
-            <p>{{ other_product.description }}</p>
-            <p>Price: ${{ other_product.price }}</p>
-            {% if other_product.image %}
-            <p>Image URL: {{ other_product.image.url }}</p>
-            <img src="{{ other_product.image.url }}" alt="{{ other_product.name }}"
-                style="width: 100%; height: auto;" />
-            {% else %}
-            <p>No image found.</p>
-            {% endif %}
-            <a href="{% url 'other_detail' other_product.id %}">View Details</a>
+        <div class="col-12 col-sm-6 col-md-4 mb-4" style="padding-top: 50px;">
+            <div class="card h-100">
+                {% if other_product.image %}
+                    <img src="{{ other_product.image.url }}" class="card-img-top" alt="{{ other_product.name }}">
+                {% else %}
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ other_product.name }}</h5>
+                    <p class="card-text">{{ other_product.description }}</p>
+                    <p class="card-text"><strong>Price:</strong> ${{ other_product.price }}</p>
+                    <a href="{% url 'other_detail' other_product.id %}" class="btn btn-success btn-block">Add to Cart</a>
+                </div>
+            </div>
         </div>
         {% empty %}
-        <p>No other products available.</p>
+        <p>No other products available at the moment.</p>
         {% endfor %}
     </div>
 </div>

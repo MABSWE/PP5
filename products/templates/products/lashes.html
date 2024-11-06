@@ -1,26 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Lashes Products</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-    <h1>Lashes</h1>
-    <div class="product-list">
+<div class="container">
+    <div class="row">
         {% for lash in lashes %}
-        <div class="product-item">
-            <h2>{{ lash.name }}</h2>
-            <p>{{ lash.description }}</p>
-            <p>Price: ${{ lash.price }}</p>
-            {% if lash.image %}
-            <p>Image URL: {{ lash.image.url }}</p>
-            <img src="{{ lash.image.url }}" alt="{{ lash.name }}" style="width: 100%; height: auto;" />
-            {% else %}
-            <p>No image found.</p>
-            {% endif %}
-            <a href="{% url 'product_detail' lash.id %}">View Details</a>
+        <div class="col-12 col-sm-6 col-md-4 mb-4" style="padding-top: 50px;">
+            <div class="card h-100">
+                {% if lash.image %}
+                    <img src="{{ lash.image.url }}" class="card-img-top" alt="{{ lash.name }}">
+                {% else %}
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ lash.name }}</h5>
+                    <p class="card-text">{{ lash.description }}</p>
+                    <p class="card-text"><strong>Price:</strong> ${{ lash.price }}</p>
+                    <a href="{% url 'product_detail' lash.id %}" class="btn btn-success btn-block">Add to Cart</a>
+                </div>
+            </div>
         </div>
         {% empty %}
-        <p>No lashes available.</p>
+        <p>No lashes available at the moment.</p>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
+
 <img src="https://via.placeholder.com/300" alt="{{ lash.name }}" style="width: 100%; height: auto;" />
