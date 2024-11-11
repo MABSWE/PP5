@@ -11,6 +11,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Main navigation links -->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
@@ -33,6 +34,7 @@
                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
             </li>
         </ul>
+
         <!-- Search form -->
         <form class="form-inline ml-auto" method="GET" action="{% url 'product_search' %}">
             <div class="input-group">
@@ -44,6 +46,7 @@
                 </div>
             </div>
         </form>
+
         <!-- Account and cart section -->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
@@ -55,12 +58,15 @@
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                     {% if request.user.is_authenticated %}
+                        <!-- Shows for logged in users -->
+                        <p class="dropdown-item">Welcome, {{ request.user.username }}</p>
                         {% if request.user.is_superuser %}
                             <a href="#" class="dropdown-item">Product Management</a>
                         {% endif %}
                         <a href="#" class="dropdown-item">My Profile</a>
                         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                     {% else %}
+                        <!-- Shows for anonymus users -->
                         <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                         <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                     {% endif %}
