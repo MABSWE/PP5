@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Admin Product Management</h1>
+    <p>Manage all products in the store from this page.</p>
+
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 50px; height: auto;">
+                    {% else %}
+                        <img src="https://via.placeholder.com/50" alt="No image">
+                    {% endif %}
+                </td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description|truncatewords:10 }}</td>
+                <td>${{ product.price }}</td>
+                <td>
+                    <!-- Example edit and delete buttons -->
+                    <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'delete_product' product.id %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">No products available</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

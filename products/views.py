@@ -1,3 +1,4 @@
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, get_object_or_404
 from .models import Product
 from django.db.models import Q
@@ -38,7 +39,7 @@ def other(request):
 def special_offers(request):
     """ Visa meddelande om att det inte finns några specialerbjudanden """
     return render(request, 'products/special_offers.html')
-    
+
 def contact(request):
     """ Visa kontaktsidan med Google Maps och kontaktinformation """
     return render(request, 'products/contact.html')
@@ -83,3 +84,13 @@ def product_search(request):
         'query': query,
     }
     return render(request, 'products/search_results.html', context)
+
+# Staff member required
+@staff_member_required
+def admin_product_view(request):
+    """ Visa en vy som endast är tillgänglig för administratörer """
+    products = Product.objects.all()
+    context = {
+        'products': products,
+    }
+    return render(request, 'products/admin_product_view.html', context)

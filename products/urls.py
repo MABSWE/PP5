@@ -18,6 +18,9 @@ urlpatterns = [
     path('glue/<int:product_id>/', views.glue_detail, name='glue_detail'),
     path('other/<int:product_id>/', views.other_detail, name='other_detail'), 
     path('special-offers/', views.special_offers, name='special_offers'),
+
+    # Other Paths
+    path('admin/products/', views.admin_product_view, name='admin_product_view'),
 ]
 
 if settings.DEBUG:
