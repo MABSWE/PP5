@@ -17,6 +17,7 @@ urlpatterns = [
     path('product/<int:product_id>/', views.product_detail, name='product_detail'),
     path('glue/<int:product_id>/', views.glue_detail, name='glue_detail'),
     path('other/<int:product_id>/', views.other_detail, name='other_detail'), 
+    path('special-offers/', views.special_offers, name='special_offers'),
 ]
 
 if settings.DEBUG:

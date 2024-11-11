@@ -35,6 +35,10 @@ def other(request):
     }
     return render(request, 'products/other.html', context)
 
+def special_offers(request):
+    """ Visa meddelande om att det inte finns några specialerbjudanden """
+    return render(request, 'products/special_offers.html')
+    
 def contact(request):
     """ Visa kontaktsidan med Google Maps och kontaktinformation """
     return render(request, 'products/contact.html')
