@@ -21,6 +21,7 @@ urlpatterns = [
 
     # Other Paths
     path('admin/products/', views.admin_product_view, name='admin_product_view'),
+    path('manager/', views.manager_view, name='manager_view')
 ]
 
 if settings.DEBUG:

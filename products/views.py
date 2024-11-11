@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import user_passes_test
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, get_object_or_404
 from .models import Product
@@ -94,3 +95,12 @@ def admin_product_view(request):
         'products': products,
     }
     return render(request, 'products/admin_product_view.html', context)
+
+# See if in 'Manager' group
+def is_manager(user):
+    return user.groups.filter(name='Manager').exists()
+
+@user_passes_test(is_manager)
+def manager_view(request):
+    """A view accessible only to managers"""
+    return render(request, 'products/manager_view.html')
