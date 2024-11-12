@@ -8,7 +8,14 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 GOOGLE_MAPS_API_KEY = config('GOOGLE_MAPS_API_KEY')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ALLOWED_HOSTS = ['8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = [
+    'skonhetsakuten.com', 
+    'www.skonhetsakuten.com', 
+    '8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net'
+]
+
+# Site domain config
+SITE_DOMAIN = config('SITE_DOMAIN', default="http://localhost:8000")
 
 # Application definition
 
