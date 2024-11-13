@@ -1,0 +1,89 @@
+/* Font */
+body {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Navbar */
+
+/* Centered icons*/
+.nav-link > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-link > div > i {
+    margin-bottom: 5px;
+}
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav {
+    margin-left: auto;
+    text-align: right;
+}
+
+.navbar-nav .nav-item {
+    float: none;
+}
+
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Se till att navbaren är över andra element */
+}
+
+/* Hero */
+.hero {
+
+    position: relative;
+}
+
+.display-4 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #fff;
+}
+
+p.lead {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #fff;
+}
+
+/* Footer */
+footer a {
+    text-decoration: none;
+    font-size: 0.75rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .fa {
+    margin-right: 8px;
+}
+
+/* Bigger screens */
+p.lead {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+/* Phones (small screens) */
+@media (max-width: 768px) {
+    p.lead {
+        font-size: 1rem;
+        line-height: 1.2;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+}
+/* Container for content to avoid overlapping with navbar */
+.container {
+    margin-top: 200px !important; 
+}

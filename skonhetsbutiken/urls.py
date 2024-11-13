@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from products.sitemaps import ProductSitemap
+from home.views import robots_txt
 
 # Register sitemaps
 sitemaps = {
@@ -16,6 +17,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('products/', include('products.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
+    path('robots.txt', robots_txt, name='robots_txt'),
 ]
 
 if settings.DEBUG:

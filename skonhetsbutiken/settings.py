@@ -11,7 +11,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_HOSTS = [
     'skonhetsakuten.com', 
     'www.skonhetsakuten.com', 
-    '8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net'
+    '8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net',
+    'localhost',
+    '127.0.0.1'
 ]
 
 # Site domain config
@@ -137,6 +139,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

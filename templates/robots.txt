@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Allow: /
+Sitemap: http://8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net/sitemap.xml
+Sitemap: http://skonhetsakuten.com/sitemap.xml
