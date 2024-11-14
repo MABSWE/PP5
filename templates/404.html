@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center my-5 elegant-404">
+    <h1 class="display-1 text-soft-pink">404</h1>
+    <h2 class="mb-4 text-dark-gray">Lost in Beauty?</h2>
+    <p class="lead text-muted">
+        We’re sorry, but the page you’re looking for seems to have gone on a little beauty retreat.
+        Let’s guide you back to the world of elegance and inspiration.
+    </p>
+    <a href="{% url 'home' %}" class="btn btn-light btn-outline-pink mt-4">Return to Home</a>
+</div>
+{% endblock %}
