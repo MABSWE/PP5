@@ -83,7 +83,20 @@ p.lead {
     }
     
 }
-/* Container for content to avoid overlapping with navbar */
+
+/* Avoid overlapping with navbar */
 .container {
     margin-top: 200px !important; 
+}
+
+/* Style for full-height map */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 200px); /* Justera höjden baserat på sidhuvud och eventuell padding */
+}
+
+#map {
+    width: 100%;
+    height: 50%;
 }
