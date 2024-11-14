@@ -93,7 +93,7 @@ p.lead {
 .map-container {
     position: relative;
     width: 100%;
-    height: calc(100vh - 200px); /* Justera höjden baserat på sidhuvud och eventuell padding */
+    height: calc(100vh - 200px);
 }
 
 #map {
