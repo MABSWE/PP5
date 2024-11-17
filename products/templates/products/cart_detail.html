@@ -1,32 +1,43 @@
 {% extends "base.html" %}
+
+{% block title %}Your Cart{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
-    <h1>Your Cart</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Remove</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in cart %}
-            <tr>
-                <td>{{ item.product.name }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>{{ item.total_price }}</td>
-                <td>
-                    <form method="POST" action="{% url 'cart_remove' item.product.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Remove</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <p><strong>Total:</strong> {{ cart.get_total_price }}</p>
+    <h1 class="text-center">Your Shopping Cart</h1>
+    {% if cart %}
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>${{ item.price|floatformat:2 }}</td>
+                    <td>${{ item.total_price|floatformat:2 }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'cart_remove' item.product.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right">
+            <h4>Total: ${{ cart.get_total_price|floatformat:2 }}</h4>
+        </div>
+    {% else %}
+        <p class="text-center">Your cart is empty.</p>
+    {% endif %}
 </div>
 {% endblock %}

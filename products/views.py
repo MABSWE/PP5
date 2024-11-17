@@ -6,7 +6,7 @@ from django.db.models import Q
 from .models import Product
 from .cart import Cart
 
-# Create views here
+# Show all products
 def all_products(request):
     """Show products and searching and sorting queries"""
     products = Product.objects.all()
@@ -15,6 +15,7 @@ def all_products(request):
     }
     return render(request, 'products/products.html', context)
 
+# Category-specific views
 def lashes(request):
     """Show only lash products"""
     lashes_products = Product.objects.filter(category__name='lashes')

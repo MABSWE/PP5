@@ -62,3 +62,9 @@ class Cart:
         """Remove cart from session"""
         del self.session[settings.CART_SESSION_ID]
         self.session.modified = True
+
+
+# Context processor to make the cart available in all templates
+def cart_context(request):
+    """Provide the cart object globally"""
+    return {'cart': Cart(request)}
