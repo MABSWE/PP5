@@ -66,7 +66,7 @@
                         <a href="#" class="dropdown-item">My Profile</a>
                         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                     {% else %}
-                        <!-- Shows for anonymus users -->
+                        <!-- Shows for anonymous users -->
                         <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                         <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                     {% endif %}
@@ -76,7 +76,7 @@
                 <a class="nav-link text-black" href="{% url 'cart_detail' %}">
                     <div class="text-right">
                         <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                        <p class="my-0">
+                        <p id="cart-total" class="my-0">
                             {% if cart.get_total_price %}
                                 ${{ cart.get_total_price|floatformat:2 }}
                             {% else %}

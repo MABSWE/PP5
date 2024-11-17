@@ -4,17 +4,18 @@
 {% block title %}Glue Products{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Explore our exclusive range of glue products for your beauty needs. Find high-quality glue options perfect for your beauty applications.">
+<meta name="description"
+    content="Explore our exclusive range of glue products for your beauty needs. Find high-quality glue options perfect for your beauty applications.">
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center">Glue Products</h1>
-            </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Glue Products</h1>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -24,9 +25,9 @@
         <div class="col-12 col-sm-6 col-md-4 mb-4" style="padding-top: 50px;">
             <div class="card h-100">
                 {% if glue_product.image %}
-                    <img src="{{ glue_product.image.url }}" class="card-img-top" alt="{{ glue_product.name }}">
+                <img src="{{ glue_product.image.url }}" class="card-img-top" alt="{{ glue_product.name }}">
                 {% else %}
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ glue_product.name }}</h5>

@@ -115,11 +115,15 @@ def manager_view(request):
 # Cart functionality
 @require_POST
 def cart_add(request, product_id):
-    """Add a product to the cart"""
+    """Add a product to the cart without showing a message."""
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     quantity = int(request.POST.get('quantity', 1))
     cart.add(product=product, quantity=quantity)
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':  # Check if AJAX
+        return JsonResponse({'cart_total': cart.get_total_price()})
+
     return redirect('cart_detail')
 
 @require_POST
@@ -137,7 +141,7 @@ def cart_detail(request):
     return render(request, 'products/cart_detail.html', context)
 
 def checkout(request):
-    """Shos the checkout-site with a summery"""
+    """Show the checkout-site with a summary"""
     cart = Cart(request)
     context = {
         'cart': cart,
@@ -162,7 +166,7 @@ def create_payment_intent(request):
         return JsonResponse({'error': str(e)}, status=400)
 
 def order_success(request):
-    """Show thenk you message"""
+    """Show thank you message"""
     cart = Cart(request)
     cart.clear()
     messages.success(request, "Thank you for your purchase!")

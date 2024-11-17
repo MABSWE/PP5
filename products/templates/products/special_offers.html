@@ -4,44 +4,49 @@
 {% block title %}Special Offers{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Check out our special offers on selected beauty products and enjoy exclusive discounts and deals. Limited time only!">
+<meta name="description"
+    content="Check out our special offers on selected beauty products and enjoy exclusive discounts and deals. Limited time only!">
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center">Special Offers</h1>
-            </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Special Offers</h1>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="row">
         {% if special_offers %}
-            {% for product in special_offers %}
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-                <div class="card h-100">
-                    {% if product.image %}
-                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                    {% else %}
-                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">{{ product.description }}</p>
-                        <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
-                        <form method="POST" action="{% url 'cart_add' product.id %}">
-                            {% csrf_token %}
-                            <input type="hidden" name="quantity" value="1">
-                            <button type="submit" class="btn btn-success btn-block">Add to Cart</button>
-                        </form>
-                    </div>
+        {% for product in special_offers %}
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card h-100 position-relative">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                {% else %}
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                    <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+
+                    <!-- Notification for "Added" -->
+                    <div class="added-popup" style="display: none;">Added</div>
+
+                    <!-- Add to cart form -->
+                    <form class="add-to-cart-form" data-product-id="{{ product.id }}">
+                        {% csrf_token %}
+                        <button type="button" class="btn btn-success add-to-cart-btn">Add to Cart</button>
+                    </form>
                 </div>
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
         {% else %}
         <div class="col-12 text-center mt-5">
             <p>Sorry, there are no special offers available at the moment. Please check back later!</p>
@@ -49,4 +54,39 @@
         {% endif %}
     </div>
 </div>
+
+<!-- JavaScript for Adding to Cart -->
+<script>
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const form = this.closest('.add-to-cart-form');
+            const productId = form.getAttribute('data-product-id');
+            const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
+            const popup = form.previousElementSibling;
+
+            fetch(`/products/cart/add/${productId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({
+                        quantity: 1
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.error) {
+                        // Show the "Added" popup
+                        popup.style.display = 'block';
+                        setTimeout(() => {
+                            popup.style.display = 'none'; // Hide after 2 seconds
+                        }, 2000);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
 {% endblock %}

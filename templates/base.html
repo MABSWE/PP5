@@ -23,20 +23,18 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
-   <!-- Zoom-effekt för bilder i kort -->
-   <style>
-    .card {
-        overflow: hidden;
-    }
-    
-    .card-img-top {
-        transition: transform 0.3s ease;
-    }
-
-    .card:hover .card-img-top {
-        transform: scale(1.1);
-    }
-</style>
+    <!-- Zoom-effekt för bilder i kort -->
+    <style>
+        .card {
+            overflow: hidden;
+        }
+        .card-img-top {
+            transition: transform 0.3s ease;
+        }
+        .card:hover .card-img-top {
+            transform: scale(1.1);
+        }
+    </style>
 
     {% block extra_css %}{% endblock %}
     {% block corejs %}
@@ -94,7 +92,41 @@
         </div>
     </footer>
 
-    {% block postloadjs %}{% endblock %}
+    {% block postloadjs %}
+    <script>
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const form = this.closest('.add-to-cart-form');
+            const productId = form.getAttribute('data-product-id');
+            const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
+            const notification = form.previousElementSibling; // Select the "Added" div
+
+            fetch(`/products/cart/add/${productId}/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken,
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+                body: JSON.stringify({ quantity: 1 }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error('Error:', data.error);
+                } else {
+                    // Display "Added" notification
+                    notification.style.display = 'block';
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                    }, 2000); // Hide after 2 sec
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
+    {% endblock %}
 </body>
 
-</html>
+</html
