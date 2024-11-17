@@ -19,8 +19,17 @@
             <tbody>
                 {% for item in cart %}
                 <tr>
-                    <td>{{ item.product.name }}</td>
-                    <td>{{ item.quantity }}</td>
+                    <td>
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 50px; height: auto;">
+                        <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
+                    </td>
+                    <td>
+                        <form method="POST" action="{% url 'cart_update' item.product.id %}">
+                            {% csrf_token %}
+                            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control" style="width: 70px; display: inline-block;">
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        </form>
+                    </td>
                     <td>${{ item.price|floatformat:2 }}</td>
                     <td>${{ item.total_price|floatformat:2 }}</td>
                     <td>

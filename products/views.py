@@ -148,3 +148,17 @@ def order_success(request):
     cart.clear()
     messages.success(request, "Thank you for your purchase!")
     return render(request, 'products/order_success.html')
+
+def cart_update(request, product_id):
+    """Update the quantity of a product in the cart."""
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    try:
+        quantity = int(request.POST.get('quantity'))
+        if quantity > 0:
+            cart.add(product=product, quantity=quantity, update_quantity=True)
+        else:
+            cart.remove(product)
+    except ValueError:
+        messages.error(request, "Invalid quantity value.")
+    return redirect('cart_detail')
