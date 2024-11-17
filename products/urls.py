@@ -28,7 +28,7 @@ urlpatterns = [
     path('checkout/', views.checkout, name='checkout'),
     path('order-success/', views.order_success, name='order_success'),
     path('cart/update/<int:product_id>/', views.cart_update, name='cart_update'),
-
+    path('create-payment-intent/', views.create_payment_intent, name='create_payment_intent'),
 ]
 
 if settings.DEBUG:

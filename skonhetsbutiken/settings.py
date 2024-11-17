@@ -7,6 +7,10 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # Google Maps API key
 GOOGLE_MAPS_API_KEY = config('GOOGLE_MAPS_API_KEY')
 
+# Stripe Key
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_HOSTS = [
     'skonhetsakuten.com', 

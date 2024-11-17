@@ -13,18 +13,19 @@
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Subtotal</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in cart %}
                 <tr>
                     <td>
-                        <!-- Visa liten bild av produkten -->
-                    <a href="{% url 'product_detail' item.product.id %}">
-                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 50px; height: auto;">
                         <a href="{% url 'product_detail' item.product.id %}">
-                            {{ item.product.name }}
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 50px; height: auto;">
                         </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
                     </td>
                     <td>{{ item.quantity }}</td>
                     <td>${{ item.price|floatformat:2 }}</td>
@@ -35,10 +36,66 @@
         </table>
         <div class="text-right mt-4">
             <h4>Total: ${{ cart.get_total_price|floatformat:2 }}</h4>
-            <a href="{% url 'order_success' %}" class="btn btn-success mt-3">Confirm Purchase</a>
         </div>
+        
+        <!-- Stripe Payment Form -->
+        <form id="payment-form" class="mt-5">
+            <div id="card-element" class="form-control mb-3">
+                <!-- Stripe Elements will be inserted here -->
+            </div>
+            <div id="card-errors" role="alert" class="text-danger"></div>
+            <button id="submit-button" class="btn btn-primary btn-block mt-3">Pay with Stripe</button>
+        </form>
     {% else %}
         <p class="text-center">Your cart is empty. <a href="{% url 'products' %}">Continue Shopping</a></p>
     {% endif %}
 </div>
+
+<!-- Include Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    const stripe = Stripe("{{ stripe_publishable_key }}");
+    const elements = stripe.elements();
+
+    // Create Card
+    const card = elements.create("card");
+    card.mount("#card-element");
+
+    // Form submission
+    const form = document.getElementById("payment-form");
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        // Fetch the PaymentIntent client secret
+        const response = await fetch("{% url 'create_payment_intent' %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+        });
+
+        const { client_secret, error } = await response.json();
+
+        if (error) {
+            // Display error message
+            document.getElementById("card-errors").textContent = error;
+            return;
+        }
+
+        // Confirm the payment
+        const { paymentIntent, error: stripeError } = await stripe.confirmCardPayment(client_secret, {
+            payment_method: {
+                card: card
+            }
+        });
+
+        if (stripeError) {
+            // Error
+            document.getElementById("card-errors").textContent = stripeError.message;
+        } else if (paymentIntent && paymentIntent.status === "succeeded") {
+            window.location.href = "{% url 'order_success' %}";
+        }
+    });
+</script>
 {% endblock %}

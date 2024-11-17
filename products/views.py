@@ -6,6 +6,9 @@ from django.db.models import Q
 from .models import Product
 from .cart import Cart
 from django.contrib import messages
+import stripe
+from django.http import JsonResponse
+from django.conf import settings
 
 # Show all products
 def all_products(request):
@@ -138,9 +141,25 @@ def checkout(request):
     cart = Cart(request)
     context = {
         'cart': cart,
-        'total_price': cart.get_total_price()
+        'total_price': cart.get_total_price(),
+        'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY,
     }
     return render(request, 'products/checkout.html', context)
+
+def create_payment_intent(request):
+    """Create a payment intent for Stripe checkout."""
+    cart = Cart(request)
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+
+    try:
+        intent = stripe.PaymentIntent.create(
+            amount=int(cart.get_total_price() * 100),
+            currency='usd',
+            payment_method_types=['card'],
+        )
+        return JsonResponse({'client_secret': intent['client_secret']})
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
 
 def order_success(request):
     """Show thenk you message"""
