@@ -5,6 +5,7 @@ from django.views.decorators.http import require_POST
 from django.db.models import Q
 from .models import Product
 from .cart import Cart
+from django.contrib import messages
 
 # Show all products
 def all_products(request):
@@ -133,13 +134,16 @@ def cart_detail(request):
     return render(request, 'products/cart_detail.html', context)
 
 def checkout(request):
-    """Visa checkout-sidan med en summering av kundvagnen."""
+    """Shos the checkout-site with a summery"""
     cart = Cart(request)
-    context = {'cart': cart}
+    context = {
+        'cart': cart,
+        'total_price': cart.get_total_price()
+    }
     return render(request, 'products/checkout.html', context)
 
 def order_success(request):
-    """Visa tacksidan efter ett lyckat köp."""
+    """Show thenk you message"""
     cart = Cart(request)
     cart.clear()
     messages.success(request, "Thank you for your purchase!")
