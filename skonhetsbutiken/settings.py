@@ -47,6 +47,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CART_SESSION_ID = 'cart'
+
 ROOT_URLCONF = 'skonhetsbutiken.urls'
 
 TEMPLATES = [

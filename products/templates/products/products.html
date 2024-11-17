@@ -28,7 +28,14 @@
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">{{ product.description }}</p>
                     <p class="card-text"><strong>Price:</strong> {{ product.price }} USD</p>
-                    <a href="#" class="btn btn-success btn-block">Add to Cart</a>
+
+                    <!-- Add to Cart Form -->
+                    <form method="POST" action="{% url 'cart_add' product.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-success btn-block">Add to Cart</button>
+                    </form>
+
                 </div>
             </div>
         </div>

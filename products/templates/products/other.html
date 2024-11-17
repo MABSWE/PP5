@@ -32,7 +32,11 @@
                     <h5 class="card-title">{{ other_product.name }}</h5>
                     <p class="card-text">{{ other_product.description }}</p>
                     <p class="card-text"><strong>Price:</strong> ${{ other_product.price }}</p>
-                    <a href="{% url 'other_detail' other_product.id %}" class="btn btn-success btn-block">Add to Cart</a>
+                    <form method="POST" action="{% url 'cart_add' other_product.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-success btn-block">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -42,4 +46,3 @@
     </div>
 </div>
 {% endblock %}
-<img src="https://via.placeholder.com/300" alt="Placeholder image" style="width: 100%; height: auto;" />

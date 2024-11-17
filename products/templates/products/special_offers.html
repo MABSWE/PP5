@@ -20,9 +20,33 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        {% if special_offers %}
+            {% for product in special_offers %}
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <div class="card h-100">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+                        <form method="POST" action="{% url 'cart_add' product.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="btn btn-success btn-block">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
         <div class="col-12 text-center mt-5">
             <p>Sorry, there are no special offers available at the moment. Please check back later!</p>
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

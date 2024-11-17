@@ -9,6 +9,9 @@ urlpatterns = [
     path('glue/', views.glue, name='glue'),
     path('other/', views.other, name='other'), 
     path('contact/', views.contact, name='contact'),
+    path('cart/add/<int:product_id>/', views.cart_add, name='cart_add'),
+    path('cart/remove/<int:product_id>/', views.cart_remove, name='cart_remove'),
+    path('cart/', views.cart_detail, name='cart_detail'),
 
     # Search
     path('search/', views.product_search, name='product_search'),

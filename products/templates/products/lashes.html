@@ -32,7 +32,11 @@
                     <h5 class="card-title">{{ lash.name }}</h5>
                     <p class="card-text">{{ lash.description }}</p>
                     <p class="card-text"><strong>Price:</strong> ${{ lash.price }}</p>
-                    <a href="{% url 'product_detail' lash.id %}" class="btn btn-success btn-block">Add to Cart</a>
+                    <form method="POST" action="{% url 'cart_add' lash.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-success btn-block">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -42,5 +46,3 @@
     </div>
 </div>
 {% endblock %}
-
-<img src="https://via.placeholder.com/300" alt="{{ lash.name }}" style="width: 100%; height: auto;" />
