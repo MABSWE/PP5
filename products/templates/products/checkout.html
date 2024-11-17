@@ -9,16 +9,19 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Price</th>
-                    <th>Subtotal</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in cart %}
                 <tr>
                     <td>
+                        <!-- Visa liten bild av produkten -->
+                    <a href="{% url 'product_detail' item.product.id %}">
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 50px; height: auto;">
                         <a href="{% url 'product_detail' item.product.id %}">
                             {{ item.product.name }}
                         </a>
