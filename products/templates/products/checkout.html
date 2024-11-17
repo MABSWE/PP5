@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Checkout</h1>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>${{ item.price|floatformat:2 }}</td>
+                <td>${{ item.total_price|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-right">
+        <h4>Total: ${{ cart.get_total_price|floatformat:2 }}</h4>
+        <a href="{% url 'order_success' %}" class="btn btn-success">Confirm Purchase</a>
+    </div>
+</div>
+{% endblock %}

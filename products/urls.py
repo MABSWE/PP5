@@ -24,7 +24,9 @@ urlpatterns = [
 
     # Other Paths
     path('admin/products/', views.admin_product_view, name='admin_product_view'),
-    path('manager/', views.manager_view, name='manager_view')
+    path('manager/', views.manager_view, name='manager_view'),
+    path('checkout/', views.checkout, name='checkout'),
+    path('order-success/', views.order_success, name='order_success'),
 ]
 
 if settings.DEBUG:

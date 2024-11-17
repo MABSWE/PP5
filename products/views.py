@@ -131,3 +131,16 @@ def cart_detail(request):
     cart = Cart(request)
     context = {'cart': cart}
     return render(request, 'products/cart_detail.html', context)
+
+def checkout(request):
+    """Visa checkout-sidan med en summering av kundvagnen."""
+    cart = Cart(request)
+    context = {'cart': cart}
+    return render(request, 'products/checkout.html', context)
+
+def order_success(request):
+    """Visa tacksidan efter ett lyckat köp."""
+    cart = Cart(request)
+    cart.clear()
+    messages.success(request, "Thank you for your purchase!")
+    return render(request, 'products/order_success.html')

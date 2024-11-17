@@ -35,6 +35,8 @@
         </table>
         <div class="text-right">
             <h4>Total: ${{ cart.get_total_price|floatformat:2 }}</h4>
+            <!-- Checkout button -->
+            <a href="{% url 'checkout' %}" class="btn btn-success mt-3">Proceed to Checkout</a>
         </div>
     {% else %}
         <p class="text-center">Your cart is empty.</p>
