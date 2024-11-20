@@ -224,3 +224,4 @@ def my_profile(request):
 
     context = {'form': form}
     return render(request, 'products/my_profile.html', context)
+

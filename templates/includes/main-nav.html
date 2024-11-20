@@ -17,16 +17,17 @@
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Shop
                 </a>
-                <div class="dropdown-menu" aria-labelledby="shopDropdown">
-                    <a class="dropdown-item" href="{% url 'lashes' %}">Lashes</a>
-                    <a class="dropdown-item" href="{% url 'glue' %}">Glue</a>
-                    <a class="dropdown-item" href="{% url 'other' %}">Other</a>
-                    <a class="dropdown-item" href="{% url 'special_offers' %}">Special Offers</a>
-                </div>
+                <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                    <li><a class="dropdown-item" href="{% url 'lashes' %}">Lashes</a></li>
+                    <li><a class="dropdown-item" href="{% url 'glue' %}">Glue</a></li>
+                    <li><a class="dropdown-item" href="{% url 'other' %}">Other</a></li>
+                    <li><a class="dropdown-item" href="{% url 'special_offers' %}">Special Offers</a></li>
+                </ul>
             </li>
+            
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'products' %}">All Products</a>
             </li>
