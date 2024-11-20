@@ -70,6 +70,23 @@
         {% block page_header %}{% endblock %}
         {% block content %}{% endblock %}
     </div>
+
+    <!-- News Sub.-->
+    <div class="newsletter-form-container bg-light py-3">
+        <div class="container text-center">
+            <h6 class="mb-3">Subscribe to our Newsletter</h6>
+            <form action="{% url 'subscribe' %}" method="post" class="row justify-content-center">
+                {% csrf_token %}
+                <div class="col-md-6 col-lg-5">
+                    <div class="input-group">
+                        <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
     
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4 mt-auto">
