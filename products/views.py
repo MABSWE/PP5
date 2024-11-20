@@ -9,6 +9,11 @@ from django.contrib import messages
 import stripe
 from django.http import JsonResponse
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserChangeForm
+from django import forms
+from django.contrib.auth.models import User
+
 
 # Show all products
 def all_products(request):
@@ -185,3 +190,37 @@ def cart_update(request, product_id):
     except ValueError:
         messages.error(request, "Invalid quantity value.")
     return redirect('cart_detail')
+
+
+# Custom form for profile
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+        }
+        help_texts = {
+            'username': '',
+        }
+# User profile
+@login_required
+def my_profile(request):
+    """Display and allow updates to user profile"""
+    user = request.user
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile was updated successfully.')
+            return redirect('my_profile')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = ProfileForm(instance=user)
+
+    context = {'form': form}
+    return render(request, 'products/my_profile.html', context)

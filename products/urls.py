@@ -29,6 +29,7 @@ urlpatterns = [
     path('order-success/', views.order_success, name='order_success'),
     path('cart/update/<int:product_id>/', views.cart_update, name='cart_update'),
     path('create-payment-intent/', views.create_payment_intent, name='create_payment_intent'),
+    path('profile/', views.my_profile, name='my_profile'),
 ]
 
 if settings.DEBUG:
