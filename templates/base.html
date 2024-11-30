@@ -41,7 +41,22 @@
         }
     </style>
 
-    {% block extra_css %}{% endblock %}
+    {% block extra_css %}<style>
+    .card {
+        overflow: hidden; /* Förhindrar att bilden går utanför kortets gränser */
+        position: relative;
+        border-radius: 10px; /* Rundade hörn */
+    }
+
+    .card-img-top {
+        transition: transform 0.3s ease; /* Mjuk zoom-effekt */
+        object-fit: cover; /* Ser till att bilden fyller sin container proportionellt */
+    }
+
+    .card:hover .card-img-top {
+        transform: scale(1.1); /* Zoomar in bilden vid hovring */
+    }
+</style>{% endblock %}
     {% block corejs %}
     <script src="https://kit.fontawesome.com/6f464bbc42.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"

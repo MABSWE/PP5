@@ -117,15 +117,22 @@ p.lead {
 
 /* IMG about section */
 .about-image {
-    max-width: 70%; /* Gör bilden mindre på stora skärmar */
+    max-width: 70%;
     height: auto;
-    border-radius: 10px; /* Rundade hörn */
+    border-radius: 10px;
     display: block;
-    margin: 0 auto; /* Centrerar bilden */
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
     .about-image {
-        max-width: 80%; /* Ännu mindre på mobil */
+        max-width: 80%;
     }
+}
+
+/* Featured IMG */
+.card-img-top {
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
 }
