@@ -6,46 +6,71 @@
 <div class="container mt-5">
     <h1 class="text-center mb-4">Checkout</h1>
     {% if cart %}
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Subtotal</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in cart %}
-                <tr>
-                    <td>
-                        <a href="{% url 'product_detail' item.product.id %}">
-                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 50px; height: auto;">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
-                    </td>
-                    <td>{{ item.quantity }}</td>
-                    <td>${{ item.price|floatformat:2 }}</td>
-                    <td>${{ item.total_price|floatformat:2 }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <!-- Table layout for larger screens -->
+        <div class="d-none d-md-block">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'product_detail' item.product.id %}">
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 50px; height: auto;">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
+                        </td>
+                        <td>{{ item.quantity }}</td>
+                        <td>${{ item.price|floatformat:2 }}</td>
+                        <td>${{ item.total_price|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Card-based layout for smaller screens -->
+        <div class="d-md-none">
+            {% for item in cart %}
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-4">
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.product.name }}</h5>
+                            <p class="card-text"><strong>Quantity:</strong> {{ item.quantity }}</p>
+                            <p class="card-text"><strong>Price:</strong> ${{ item.price|floatformat:2 }}</p>
+                            <p class="card-text"><strong>Subtotal:</strong> ${{ item.total_price|floatformat:2 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Total and Stripe Payment Form -->
         <div class="text-right mt-4">
             <h4>Total: ${{ cart.get_total_price|floatformat:2 }}</h4>
+            <!-- Stripe Payment Form -->
+            <form id="payment-form" class="mt-5">
+                <div id="card-element" class="form-control mb-3">
+                    <!-- Stripe Elements will be inserted here -->
+                </div>
+                <div id="card-errors" role="alert" class="text-danger"></div>
+                <button id="submit-button" class="btn btn-primary btn-block mt-3">Pay with Stripe</button>
+            </form>
         </div>
-        
-        <!-- Stripe Payment Form -->
-        <form id="payment-form" class="mt-5">
-            <div id="card-element" class="form-control mb-3">
-                <!-- Stripe Elements will be inserted here -->
-            </div>
-            <div id="card-errors" role="alert" class="text-danger"></div>
-            <button id="submit-button" class="btn btn-primary btn-block mt-3">Pay with Stripe</button>
-        </form>
     {% else %}
         <p class="text-center">Your cart is empty. <a href="{% url 'products' %}">Continue Shopping</a></p>
     {% endif %}
