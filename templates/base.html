@@ -10,6 +10,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Default description for the site or page.">
+    <!-- Base meta description -->
+    <meta name="description" content="{% block meta_description %}Default description for the site.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}default, keywords, for, site{% endblock %}">
+    <meta property="og:title" content="{% block meta_og_title %}Default OG Title{% endblock %}">
+
     {% endblock %}
 
     {% block extra_meta %}{% endblock %}
