@@ -114,3 +114,18 @@ p.lead {
     font-size: 14px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* IMG about section */
+.about-image {
+    max-width: 70%; /* Gör bilden mindre på stora skärmar */
+    height: auto;
+    border-radius: 10px; /* Rundade hörn */
+    display: block;
+    margin: 0 auto; /* Centrerar bilden */
+}
+
+@media (max-width: 768px) {
+    .about-image {
+        max-width: 80%; /* Ännu mindre på mobil */
+    }
+}
