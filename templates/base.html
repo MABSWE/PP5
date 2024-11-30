@@ -33,30 +33,37 @@
         .card {
             overflow: hidden;
         }
+
         .card-img-top {
             transition: transform 0.3s ease;
         }
+
         .card:hover .card-img-top {
             transform: scale(1.1);
         }
     </style>
 
     {% block extra_css %}<style>
-    .card {
-        overflow: hidden; /* Förhindrar att bilden går utanför kortets gränser */
-        position: relative;
-        border-radius: 10px; /* Rundade hörn */
-    }
+        .card {
+            overflow: hidden;
+            /* Förhindrar att bilden går utanför kortets gränser */
+            position: relative;
+            border-radius: 10px;
+            /* Rundade hörn */
+        }
 
-    .card-img-top {
-        transition: transform 0.3s ease; /* Mjuk zoom-effekt */
-        object-fit: cover; /* Ser till att bilden fyller sin container proportionellt */
-    }
+        .card-img-top {
+            transition: transform 0.3s ease;
+            /* Mjuk zoom-effekt */
+            object-fit: cover;
+            /* Ser till att bilden fyller sin container proportionellt */
+        }
 
-    .card:hover .card-img-top {
-        transform: scale(1.1); /* Zoomar in bilden vid hovring */
-    }
-</style>{% endblock %}
+        .card:hover .card-img-top {
+            transform: scale(1.1);
+            /* Zoomar in bilden vid hovring */
+        }
+    </style>{% endblock %}
     {% block corejs %}
     <script src="https://kit.fontawesome.com/6f464bbc42.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
@@ -65,8 +72,8 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-</script>
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
 
     {% endblock %}
     {% block extra_js %}{% endblock %}
@@ -107,14 +114,15 @@
             </form>
         </div>
     </div>
-    
-    
+
+
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4 mt-auto">
         <div class="container">
             <p>&copy; {{ current_year }} Skönhetsakuten. All rights reserved.</p>
             <div class="d-flex justify-content-center flex-wrap">
-                <a href="https://www.instagram.com/skonhetsakuten" class="text-white mx-2" target="_blank" rel="nofollow">
+                <a href="https://www.instagram.com/skonhetsakuten" class="text-white mx-2" target="_blank"
+                    rel="nofollow">
                     <i class="fab fa-instagram"></i> Instagram
                 </a>
                 <a href="https://www.tiktok.com/@skonhetsakuten" class="text-white mx-2" target="_blank" rel="nofollow">
@@ -134,38 +142,40 @@
 
     {% block postloadjs %}
     <script>
-    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-        button.addEventListener('click', function () {
-            const form = this.closest('.add-to-cart-form');
-            const productId = form.getAttribute('data-product-id');
-            const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
-            const notification = form.previousElementSibling; // Select the "Added" div
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const form = this.closest('.add-to-cart-form');
+                const productId = form.getAttribute('data-product-id');
+                const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
+                const notification = form.previousElementSibling;
 
-            fetch(`/products/cart/add/${productId}/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': csrfToken,
-                    'X-Requested-With': 'XMLHttpRequest',
-                },
-                body: JSON.stringify({ quantity: 1 }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    console.error('Error:', data.error);
-                } else {
-                    // Display "Added" notification
-                    notification.style.display = 'block';
-                    setTimeout(() => {
-                        notification.style.display = 'none';
-                    }, 2000); // Hide after 2 sec
-                }
-            })
-            .catch(error => console.error('Error:', error));
+                fetch(`/products/cart/add/${productId}/`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': csrfToken,
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },
+                        body: JSON.stringify({
+                            quantity: 1
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            console.error('Error:', data.error);
+                        } else {
+                            // Display "Added" notification
+                            notification.style.display = 'block';
+                            setTimeout(() => {
+                                notification.style.display = 'none';
+                            }, 2000); // Hide after 2 sec
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
         });
-    });
-</script>
+    </script>
     {% endblock %}
 </body>
 

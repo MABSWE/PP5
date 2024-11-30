@@ -17,8 +17,19 @@ body {
     margin-bottom: 5px;
 }
 .navbar {
+    width: 100%;
+    margin: 0;
+    padding: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+}
+
 
 .navbar-nav {
     margin-left: auto;
@@ -27,11 +38,6 @@ body {
 
 .navbar-nav .nav-item {
     float: none;
-}
-
-.navbar {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Se till att navbaren är över andra element */
 }
 
 /* Hero */
