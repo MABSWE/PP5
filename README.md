@@ -118,3 +118,43 @@ This project was built as part of my portfolio for the [Diploma in Full Stack So
 - Balsamiq (Wireframe design)
 
 ---
+
+## Deployment
+
+This application has been deployed using [Render](https://render.com/). Below are the steps to deploy the project:
+
+---
+
+### Step 1: Create a Render Account
+- Visit [Render](https://render.com/) and sign up for an account if you don't already have one.
+
+---
+
+### Step 2: Create a New Web Service
+1. Go to the **Dashboard** in Render.
+2. Click on **New** and select **Web Service**.
+3. Connect your GitHub repository to Render and select the repository for your project.
+
+---
+
+### Step 3: Configure the Web Service
+- Set the following options:
+  - **Name**: Give your app a name (e.g., `your-app-name`).
+  - **Region**: Choose a deployment region.
+  - **Branch**: Select the branch you want to deploy (e.g., `main`).
+  - **Build Command**: 
+    ```
+    pip install -r requirements.txt
+    ```
+  - **Start Command**: 
+    ```
+    gunicorn your_project_name.wsgi
+    ```
+
+---
+
+### Step 4: Set Environment Variables
+- In the **Environment** section, add the following variables:
+
+
+

@@ -17,8 +17,12 @@ ALLOWED_HOSTS = [
     'www.skonhetsakuten.com', 
     '8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net',
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
 ]
+# Render.com URL
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Site domain config
 SITE_DOMAIN = config('SITE_DOMAIN', default="http://localhost:8000")
