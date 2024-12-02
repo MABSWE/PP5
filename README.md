@@ -98,3 +98,23 @@ This project was built as part of my portfolio for the [Diploma in Full Stack So
    - As an admin, I want to access user profiles so that I can help users with account-related issues.
 
 ---
+
+## Technologies Used
+### Frontend
+- HTML5
+- CSS3
+- Bootstrap 5
+- JavaScript
+
+### Backend
+- Python 3
+- Django 4
+- PostgreSQL
+
+### Tools
+- Stripe (Payment integration)
+- Heroku (Deployment)
+- GitPod & GitHub (Version control)
+- Balsamiq (Wireframe design)
+
+---
