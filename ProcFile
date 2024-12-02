@@ -1,0 +1,1 @@
+web: gunicorn skonhetsbutiken.wsgi:application
