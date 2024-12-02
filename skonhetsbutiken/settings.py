@@ -18,6 +18,7 @@ ALLOWED_HOSTS = [
     '8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net',
     'localhost',
     '127.0.0.1',
+    'pp5.onrender.com',
 ]
 # Render.com URL
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
