@@ -2,8 +2,11 @@ asgiref==3.8.1
 Django==3.0.1
 django-allauth==0.50.0
 oauthlib==3.2.2
+pillow==10.4.0
 PyJWT==2.9.0
+python-decouple==3.8
 python3-openid==3.2.0
 pytz==2024.2
 requests-oauthlib==2.0.0
 sqlparse==0.5.1
+stripe==11.2.0
