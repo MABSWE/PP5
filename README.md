@@ -154,7 +154,79 @@ This application has been deployed using [Render](https://render.com/). Below ar
 ---
 
 ### Step 4: Set Environment Variables
-- In the **Environment** section, add the following variables:
+- In the **Environment** section, add the following variables: SECRET_KEY=<your-secret-key> DEBUG=False ALLOWED_HOSTS=your-app-name.herokuapp.com STRIPE_PUBLIC_KEY=<your-stripe-public-key> STRIPE_SECRET_KEY=<your-stripe-secret-key>
 
+---
 
+### Step 5: Prepare Your Local Environment
+- Install dependencies: pip install dj-database-url psycopg2-binary gunicorn
+- Update your `requirements.txt`: pip freeze > requirements.txt
 
+---
+
+### Step 6: Create a Procfile
+- In your project root, create a `Procfile` with the following content: web: gunicorn your_project_name.wsgi
+
+---
+
+### Step 7: Add a Database Resource
+- In Render, navigate to your **Dashboard** and select your service.
+- Under the **Resources** tab, add a **Postgres Database**.
+- Note the `DATABASE_URL` generated for the database.
+- Add the `DATABASE_URL` to your **Environment Variables** in the Render **Settings**.
+
+---
+
+### Step 8: Run Database Migrations
+- Open the **Shell** in Render or use your local terminal.
+- Run the following commands:
+  ```bash
+  python manage.py makemigrations
+  python manage.py migrate
+
+---
+
+### Step 9: Configure Static Files
+- Ensure your Django project is set up to handle static files correctly:
+  - Add the following to your `settings.py`:
+    ```python
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    ```
+  - Run the following command locally to collect static files:
+    ```bash
+    python manage.py collectstatic
+    ```
+- Push the changes to your repository.
+
+---
+
+### Step 10: Enable Automatic Deployments
+- In Render, navigate to your service's **Settings**.
+- Under the **Deploy** section, link your app to your GitHub repository.
+- Enable **Automatic Deploys** so that any push to the selected branch triggers a deployment.
+
+---
+
+### Step 11: Add a Custom Domain (Optional)
+- To use a custom domain:
+  1. In Render, go to your service's **Settings**.
+  2. Add your custom domain (e.g., `www.example.com`).
+  3. Update the `ALLOWED_HOSTS` in your `settings.py`:
+     ```python
+     ALLOWED_HOSTS = ['your-app-name.onrender.com', 'your-custom-domain.com']
+     ```
+  4. Configure your domain registrar to point to Render by adding the necessary DNS records.
+
+---
+
+### Step 12: Test the Application
+- Access your app at the default Render URL or your custom domain (if configured).
+- Check all functionality, including:
+  - User authentication
+  - Payment processing (if applicable)
+  - Database CRUD operations
+  - Responsiveness on different devices
+- Troubleshoot any issues by checking the **Logs** in the Render dashboard.
+
+---
