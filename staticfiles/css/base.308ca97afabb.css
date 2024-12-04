@@ -1,0 +1,157 @@
+/* Font */
+body {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Navbar */
+
+/* Centered icons*/
+.nav-link > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-link > div > i {
+    margin-bottom: 5px;
+}
+.navbar {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+}
+
+
+.navbar-nav {
+    margin-left: auto;
+    text-align: right;
+}
+
+.navbar-nav .nav-item {
+    float: none;
+}
+
+/* Hero */
+.hero {
+
+    position: relative;
+}
+
+.display-4 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #fff;
+}
+
+p.lead {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #fff;
+}
+
+
+/* Footer */
+footer a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .fa {
+    margin-right: 8px;
+}
+
+/* Bigger screens */
+p.lead {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+/* Phones (small screens) */
+@media (max-width: 768px) {
+    p.lead {
+        font-size: 1rem;
+        line-height: 1.2;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+}
+
+/* Avoid overlapping with navbar */
+.container {
+    margin-top: 200px !important; 
+}
+
+/* Style for full-height map */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 200px);
+}
+
+#map {
+    width: 100%;
+    height: 50%;
+}
+
+/* "Added" Popup */
+.added-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* IMG about section */
+.about-image {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .about-image {
+        max-width: 80%;
+    }
+}
+
+/* Featured IMG */
+.card-img-top {
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-body {
+    position: relative;
+    z-index: 2;
+    background: rgb(255, 255, 255);
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
