@@ -1,6 +1,16 @@
 from django.db import models
+from django.utils import timezone
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
-# Create your models here.
+class Product(models.Model):
+    updated_at = models.DateTimeField(default=timezone.now)
+
+@receiver(pre_save, sender=Product)
+def update_timestamp(sender, instance, **kwargs):
+    if not instance.updated_at:
+        instance.updated_at = timezone.now()
+
 class Testimonial(models.Model):
     user_name = models.CharField(max_length=100)
     content = models.TextField()
