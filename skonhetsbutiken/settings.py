@@ -20,9 +20,10 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'pp5.onrender.com',
-    'skonhetsbutiken.herokuapp.com'
+    'skonhetsbutiken.herokuapp.com',
     'skonhetsbutiken-601fe291f6a2.herokuapp.com',
 ]
+
 # Render.com URL
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
