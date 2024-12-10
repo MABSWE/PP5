@@ -113,11 +113,7 @@ WSGI_APPLICATION = 'skonhetsbutiken.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(
-        'postgresql://neondb_owner:Wo1XYH3sxylz@ep-crimson-shape-a2rzqd1n.eu-central-1.aws.neon.tech/payer_july_gem_973991',
-        conn_max_age=600,
-        ssl_require=True
-    )
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
