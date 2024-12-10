@@ -23,7 +23,7 @@
         <div class="col-12 col-sm-6 col-md-4 mb-4" style="padding-top: 50px;">
             <div class="card h-100 position-relative">
                 {% if lash.image %}
-                <img src="{% static 'img/products/' %}{{ lash.image }}" class="card-img-top" alt="{{ lash.name }}">
+                <img src="{{ lash_product.image.url }}" class="card-img-top" alt="{{ lash_product.name }}">
                 {% else %}
                 <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
                 {% endif %}
