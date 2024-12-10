@@ -114,7 +114,9 @@ WSGI_APPLICATION = 'skonhetsbutiken.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(
-        'postgresql://neondb_owner:Wo1XYH3sxylz@ep-crimson-shape-a2rzqd1n.eu-central-1.aws.neon.tech/payer_july_gem_973991'
+        'postgresql://neondb_owner:Wo1XYH3sxylz@ep-crimson-shape-a2rzqd1n.eu-central-1.aws.neon.tech/payer_july_gem_973991',
+        conn_max_age=600,
+        ssl_require=True
     )
 }
 
