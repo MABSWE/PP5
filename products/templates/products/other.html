@@ -27,7 +27,7 @@ beauty routine.{% endblock %}
             <div class="card h-100 position-relative">
                 {% if other_product.image %}
                 {% if other_product.image %} 
-                <img src="{% static 'img/products/' %}{{ other_product.image }}"
+                <img src="{{ other_product.image.url }}" class="card-img-top" alt="{{ other_product.name }}">
                 class="card-img-top" alt="{{ other_product.name }}"> {% else %} <img
                 src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image"> {% endif %}
                 <div class="card-body">
