@@ -1,21 +1,26 @@
 import os
 import dj_database_url
-from decouple import config
 
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+# Importera env.py om det finns
+if os.path.isfile('env.py'):
+    import env
+
+# Miljövariabler
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 # Google Maps API key
-GOOGLE_MAPS_API_KEY = config('GOOGLE_MAPS_API_KEY')
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 
-# Stripe Key
-STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
-STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
+# Stripe Keys
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 ALLOWED_HOSTS = [
-    'skonhetsakuten.com', 
-    'www.skonhetsakuten.com', 
+    'skonhetsakuten.com',
+    'www.skonhetsakuten.com',
     '8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net',
     'localhost',
     '127.0.0.1',
@@ -30,10 +35,9 @@ if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Site domain config
-SITE_DOMAIN = config('SITE_DOMAIN', default="http://localhost:8000")
+SITE_DOMAIN = os.getenv('SITE_DOMAIN', "http://localhost:8000")
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -78,7 +82,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'products.context_processors.cart_context',
@@ -88,12 +92,10 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, regardless of 'allauth'
-    'django.contrib.auth.backends.ModelBackend',
-
-    # 'allauth' specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',  # Needed for admin login
+    'allauth.account.auth_backends.AuthenticationBackend',  # For allauth
 )
+
 SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -108,52 +110,29 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'skonhetsbutiken.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL', ''))
 }
 
 DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
 
 # Password validation
-# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+# Static and Media files
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
