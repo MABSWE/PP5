@@ -117,7 +117,7 @@ DATABASES = {
     'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
 }
 
-# DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
+DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
