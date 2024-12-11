@@ -12,6 +12,8 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 # Google Maps API key
 GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 
+if not GOOGLE_MAPS_API_KEY:
+    raise ValueError("Missing GOOGLE_MAPS_API_KEY environment variable")
 # Stripe Keys
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
@@ -112,10 +114,10 @@ WSGI_APPLICATION = 'skonhetsbutiken.wsgi.application'
 
 # Database
 DATABASES = {
-    'default': dj_database_url.parse(os.getenv('DATABASE_URL', ''))
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
 }
 
-DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
+# DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
