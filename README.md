@@ -255,6 +255,11 @@ The W3C Jigsaw CSS Validation Service
 ### PEP8 Validation
 Service was used to check the Python code
 
+<details><summary>Running pycodestyle .</summary><img src="read_img/pep8_1.png" alt="Pep8 image 1">
+  <img src="read_img/pep8_2.png" alt="Pep8 image 2"></details><hr>
+<details><summary>Running autopep8 --in-place --aggressive --aggressive **/*.py</summary><img src="read_img/pep8_3.png"></details><hr>
+<details><summary>Manual fix</summary><img src="read_img/pep8_4.png"></details><hr>
+
 
 
 
