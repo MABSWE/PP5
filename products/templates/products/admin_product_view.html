@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Admin Product Management
+Admin Product Management
 {% endblock %}
 
 {% block content %}
@@ -25,9 +25,9 @@
             <tr>
                 <td>
                     {% if product.image %}
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 50px; height: auto;">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 50px; height: auto;">
                     {% else %}
-                        <img src="https://via.placeholder.com/50" alt="No image">
+                    <img src="https://via.placeholder.com/50" alt="No image">
                     {% endif %}
                 </td>
                 <td>{{ product.name }}</td>

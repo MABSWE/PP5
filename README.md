@@ -230,3 +230,34 @@ This application has been deployed using [Render](https://render.com/). Below ar
 - Troubleshoot any issues by checking the **Logs** in the Render dashboard.
 
 ---
+
+## Testing
+
+## HTML Validation
+W3C was used for validating html code
+
+
+## JavaScript Validation
+JSHint JS Validation Service
+
+<details><summary>Products.json</summary><img src="read_img/products.json.png"></details><hr>
+<details><summary>Staticfiles.json</summary><img src="read_img/staticfiles.json.png"></details><hr>
+
+
+### CSS Validation
+The W3C Jigsaw CSS Validation Service
+
+<details><summary>Base.css</summary>
+  <a href="read_img/base.css.png" target="_blank"><img src="read_img/base.css.png" alt="Base.css image"></a>
+</details><hr>
+
+
+### PEP8 Validation
+Service was used to check the Python code
+
+
+
+
+
+
+

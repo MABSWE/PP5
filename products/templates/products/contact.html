@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block title %}Contact Us{% endblock %}
-{% block meta_description %}Reach out to us for inquiries, support, or more information about our beauty products. We're here to help!{% endblock %}
+{% block meta_description %}Reach out to us for inquiries, support, or more information about our beauty products. We're
+here to help!{% endblock %}
 {% block meta_keywords %}contact, customer support, help, inquiries, beauty products{% endblock %}
 {% block meta_og_title %}Contact Us | Skönhetsbutiken{% endblock %}
 
@@ -23,7 +24,10 @@
 
 <script>
     function initMap() {
-        var location = { lat: 59.91664464621775, lng: 10.785113667952734 };
+        var location = {
+            lat: 59.91664464621775,
+            lng: 10.785113667952734
+        };
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: location
@@ -34,5 +38,6 @@
         });
     }
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmKFmZScmkrJFO594jH1-V6vTsZ-s94AE&callback=initMap"></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmKFmZScmkrJFO594jH1-V6vTsZ-s94AE&callback=initMap"></script>
 {% endblock %}

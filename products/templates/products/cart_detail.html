@@ -6,84 +6,88 @@
 <div class="container mt-5">
     <h1 class="text-center">Your Shopping Cart</h1>
     {% if cart %}
-        <!-- Table for larger screens -->
-        <div class="d-none d-md-block">
-            <table class="table table-striped mt-4">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Subtotal</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in cart %}
-                    <tr>
-                        <td>
-                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 50px; height: auto;">
-                            <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
-                        </td>
-                        <td>
-                            <form method="POST" action="{% url 'cart_update' item.product.id %}">
-                                {% csrf_token %}
-                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control" style="width: 70px; display: inline-block;">
-                                <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                            </form>
-                        </td>
-                        <td>${{ item.price|floatformat:2 }}</td>
-                        <td>${{ item.total_price|floatformat:2 }}</td>
-                        <td>
-                            <form method="POST" action="{% url 'cart_remove' item.product.id %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-danger">Remove</button>
-                            </form>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+    <!-- Table for larger screens -->
+    <div class="d-none d-md-block">
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart %}
+                <tr>
+                    <td>
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                            style="width: 50px; height: auto;">
+                        <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
+                    </td>
+                    <td>
+                        <form method="POST" action="{% url 'cart_update' item.product.id %}">
+                            {% csrf_token %}
+                            <input type="number" name="quantity" value="{{ item.quantity }}" min="1"
+                                class="form-control" style="width: 70px; display: inline-block;">
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        </form>
+                    </td>
+                    <td>${{ item.price|floatformat:2 }}</td>
+                    <td>${{ item.total_price|floatformat:2 }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'cart_remove' item.product.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-        <!-- Card-based layout for smaller screens -->
-        <div class="d-md-none">
-            {% for item in cart %}
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-4">
-                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded-start">
-                    </div>
-                    <div class="col-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ item.product.name }}</h5>
-                            <p class="card-text"><strong>Price:</strong> ${{ item.price|floatformat:2 }}</p>
-                            <p class="card-text"><strong>Subtotal:</strong> ${{ item.total_price|floatformat:2 }}</p>
-                            <form method="POST" action="{% url 'cart_update' item.product.id %}" class="mb-2">
-                                {% csrf_token %}
-                                <div class="input-group">
-                                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control">
-                                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                                </div>
-                            </form>
-                            <form method="POST" action="{% url 'cart_remove' item.product.id %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-danger w-100">Remove</button>
-                            </form>
-                        </div>
+    <!-- Card-based layout for smaller screens -->
+    <div class="d-md-none">
+        {% for item in cart %}
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                        class="img-fluid rounded-start">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.product.name }}</h5>
+                        <p class="card-text"><strong>Price:</strong> ${{ item.price|floatformat:2 }}</p>
+                        <p class="card-text"><strong>Subtotal:</strong> ${{ item.total_price|floatformat:2 }}</p>
+                        <form method="POST" action="{% url 'cart_update' item.product.id %}" class="mb-2">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1"
+                                    class="form-control">
+                                <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                            </div>
+                        </form>
+                        <form method="POST" action="{% url 'cart_remove' item.product.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger w-100">Remove</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
+    </div>
 
-        <div class="text-right mt-4">
-            <h4>Total: ${{ cart.get_total_price|floatformat:2 }}</h4>
-            <!-- Checkout button -->
-            <a href="{% url 'checkout' %}" class="btn btn-success mt-3 w-100">Proceed to Checkout</a>
-        </div>
+    <div class="text-right mt-4">
+        <h4>Total: ${{ cart.get_total_price|floatformat:2 }}</h4>
+        <!-- Checkout button -->
+        <a href="{% url 'checkout' %}" class="btn btn-success mt-3 w-100">Proceed to Checkout</a>
+    </div>
     {% else %}
-        <p class="text-center">Your cart is empty.</p>
+    <p class="text-center">Your cart is empty.</p>
     {% endif %}
 </div>
 {% endblock %}
