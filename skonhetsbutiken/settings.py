@@ -3,7 +3,7 @@ import dj_database_url
 
 # Importera env.py om det finns
 #if os.path.isfile('env.py'):
-#     import env
+     #import env
 
 # Miljövariabler
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -30,6 +30,12 @@ ALLOWED_HOSTS = [
     'skonhetsbutiken.herokuapp.com',
     'skonhetsbutiken-601fe291f6a2.herokuapp.com',
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-mabswe-pp5-13qn8esf4sh.ws.codeinstitute-ide.net',
+    'http://127.0.0.1:8000',
+]
+
 
 # Render.com URL
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
