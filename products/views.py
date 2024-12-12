@@ -35,7 +35,7 @@ def lashes(request):
 
 def glue(request):
     """Show only glue products"""
-    glue_products = Product.objects.filter(category__name='lash_glue')
+    glue_products = Product.objects.filter(category__name='glue')
     context = {
         'glue': glue_products,
     }
