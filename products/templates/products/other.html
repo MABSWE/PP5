@@ -2,12 +2,10 @@
 {% load static %}
 
 {% block title %}Other Products{% endblock %}
-{% block meta_description %}Browse our collection of other beauty products, including accessories and essentials to
-complete your beauty regimen.{% endblock %}
+{% block meta_description %}Browse our collection of other beauty products, including accessories and essentials to complete your beauty regimen.{% endblock %}
 {% block meta_keywords %}beauty products, accessories, essentials, complete beauty regimen{% endblock %}
 {% block meta_og_title %}Other Products{% endblock %}
-{% block meta_og_description %}Discover our unique collection of beauty accessories and essentials to enhance your
-beauty routine.{% endblock %}
+{% block meta_og_description %}Discover our unique collection of beauty accessories and essentials to enhance your beauty routine.{% endblock %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -25,10 +23,11 @@ beauty routine.{% endblock %}
         {% for other_product in other %}
         <div class="col-12 col-sm-6 col-md-4 mb-4" style="padding-top: 50px;">
             <div class="card h-100 position-relative">
-                {% if other_product.image %} 
+                {% if other_product.image %}
                 <img src="{{ other_product.image.url }}" class="card-img-top" alt="{{ other_product.name }}">
-                class="card-img-top" alt="{{ other_product.name }}"> {% else %} <img
-                src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image"> {% endif %}
+                {% else %}
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Placeholder image">
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ other_product.name }}</h5>
                     <p class="card-text">{{ other_product.description }}</p>
