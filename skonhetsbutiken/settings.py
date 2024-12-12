@@ -2,7 +2,7 @@ import os
 import dj_database_url
 
 # Importera env.py om det finns
-#if os.path.isfile('env.py'):
+# if os.path.isfile('env.py'):
 #     import env
 
 # Miljövariabler

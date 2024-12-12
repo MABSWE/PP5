@@ -25,6 +25,8 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 # Category-specific views
+
+
 def lashes(request):
     """Show only lash products"""
     lashes_products = Product.objects.filter(category__name='lashes')
@@ -32,6 +34,7 @@ def lashes(request):
         'lashes': lashes_products,
     }
     return render(request, 'products/lashes.html', context)
+
 
 def glue(request):
     """Show only glue products"""
@@ -41,6 +44,7 @@ def glue(request):
     }
     return render(request, 'products/glue.html', context)
 
+
 def other(request):
     """Show other products"""
     other_products = Product.objects.filter(category__name='other')
@@ -49,15 +53,19 @@ def other(request):
     }
     return render(request, 'products/other.html', context)
 
+
 def special_offers(request):
     """Display a message for special offers"""
     return render(request, 'products/special_offers.html')
+
 
 def contact(request):
     """Display the contact page with Google Maps and contact information"""
     return render(request, 'products/contact.html')
 
 # Product details
+
+
 def product_detail(request, product_id):
     """Show details for a specific product"""
     product = get_object_or_404(Product, id=product_id)
@@ -67,6 +75,8 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 # Glue product details
+
+
 def glue_detail(request, product_id):
     """Show details for a specific glue product"""
     product = get_object_or_404(Product, id=product_id, category__name='Glue')
@@ -76,6 +86,8 @@ def glue_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 # Other product details
+
+
 def other_detail(request, product_id):
     """Show details for a specific product in the 'Other' category"""
     product = get_object_or_404(Product, id=product_id, category__name='Other')
@@ -85,6 +97,8 @@ def other_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 # Search functionality
+
+
 def product_search(request):
     """Handle searches for products"""
     query = request.GET.get('q')
@@ -99,6 +113,8 @@ def product_search(request):
     return render(request, 'products/search_results.html', context)
 
 # Staff-only view
+
+
 @staff_member_required
 def admin_product_view(request):
     """View for administrators only"""
@@ -109,8 +125,11 @@ def admin_product_view(request):
     return render(request, 'products/admin_product_view.html', context)
 
 # Manager-only view
+
+
 def is_manager(user):
     return user.groups.filter(name='Manager').exists()
+
 
 @user_passes_test(is_manager)
 def manager_view(request):
@@ -118,6 +137,8 @@ def manager_view(request):
     return render(request, 'products/manager_view.html')
 
 # Cart functionality
+
+
 @require_POST
 def cart_add(request, product_id):
     """Add a product to the cart without showing a message."""
@@ -126,10 +147,12 @@ def cart_add(request, product_id):
     quantity = int(request.POST.get('quantity', 1))
     cart.add(product=product, quantity=quantity)
 
-    if request.headers.get('x-requested-with') == 'XMLHttpRequest':  # Check if AJAX
+    if request.headers.get(
+            'x-requested-with') == 'XMLHttpRequest':  # Check if AJAX
         return JsonResponse({'cart_total': cart.get_total_price()})
 
     return redirect('cart_detail')
+
 
 @require_POST
 def cart_remove(request, product_id):
@@ -139,11 +162,13 @@ def cart_remove(request, product_id):
     cart.remove(product)
     return redirect('cart_detail')
 
+
 def cart_detail(request):
     """Display the cart"""
     cart = Cart(request)
     context = {'cart': cart}
     return render(request, 'products/cart_detail.html', context)
+
 
 def checkout(request):
     """Show the checkout-site with a summary"""
@@ -154,6 +179,7 @@ def checkout(request):
         'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY,
     }
     return render(request, 'products/checkout.html', context)
+
 
 def create_payment_intent(request):
     """Create a payment intent for Stripe checkout."""
@@ -170,12 +196,14 @@ def create_payment_intent(request):
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=400)
 
+
 def order_success(request):
     """Show thank you message"""
     cart = Cart(request)
     cart.clear()
     messages.success(request, "Thank you for your purchase!")
     return render(request, 'products/order_success.html')
+
 
 def cart_update(request, product_id):
     """Update the quantity of a product in the cart."""
@@ -207,6 +235,8 @@ class ProfileForm(forms.ModelForm):
             'username': '',
         }
 # User profile
+
+
 @login_required
 def my_profile(request):
     """Display and allow updates to user profile"""
@@ -224,4 +254,3 @@ def my_profile(request):
 
     context = {'form': form}
     return render(request, 'products/my_profile.html', context)
-
