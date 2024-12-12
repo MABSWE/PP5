@@ -3,7 +3,7 @@ import dj_database_url
 
 # Importera env.py om det finns
 #if os.path.isfile('env.py'):
-     #import env
+#     import env
 
 # Miljövariabler
 SECRET_KEY = os.getenv('SECRET_KEY')
