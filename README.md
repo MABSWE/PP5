@@ -286,6 +286,15 @@ The wireframes were created using Balsamiq
 
 ## Future Enhancements
 
+1. **Product Reviews and Ratings**: Allow customers to leave reviews and ratings for products to enhance user interaction and provide social proof.
+2. **Wishlist Feature**: Implement a wishlist so users can save products they want to purchase later.
+3. **Advanced Search and Filtering**: Add features for users to filter products by price range, category, and ratings to improve navigation.
+4. **Multi-language Support**: Enable language options to make the website accessible to a global audience.
+5. **Promotional Discounts**: Add functionality to apply promotional codes or discounts during checkout.
+6. **Real-time Stock Updates**: Display live product availability status to customers.
+7. **User Profiles with Order History**: Enhance user profiles to include detailed order histories and preferences.
+8. **Mobile Application**: Develop a mobile app version of the platform for iOS and Android to reach a broader audience.
+
 ---
 
 ## Acknowledgments
