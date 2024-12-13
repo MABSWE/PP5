@@ -113,7 +113,7 @@ This project was built as part of my portfolio for the [Diploma in Full Stack So
 
 ### Tools
 - Stripe (Payment integration)
-- Heroku (Deployment)
+- Render (Deployment)
 - GitPod & GitHub (Version control)
 - Balsamiq (Wireframe design)
 
@@ -235,6 +235,13 @@ This application has been deployed using [Render](https://render.com/). Below ar
 
 ## HTML Validation
 W3C was used for validating html code
+<details><summary>Home</summary><img src="read_img/staticfiles.json.png"></details><hr>
+<details><summary>Glue</summary><img src="read_img/staticfiles.json.png"></details><hr>
+<details><summary>Lashes</summary><img src="read_img/staticfiles.json.png"></details><hr>
+<details><summary>Other</summary><img src="read_img/staticfiles.json.png"></details><hr>
+<details><summary>Products</summary><img src="read_img/staticfiles.json.png"></details><hr>
+<details><summary></summary><img src="read_img/staticfiles.json.png"></details><hr>
+<details><summary></summary><img src="read_img/staticfiles.json.png"></details><hr>
 
 
 ## JavaScript Validation
@@ -260,9 +267,30 @@ Service was used to check the Python code
 <details><summary>Running autopep8 --in-place --aggressive --aggressive **/*.py</summary><img src="read_img/pep8_3.png"></details><hr>
 <details><summary>Manual fix</summary><img src="read_img/pep8_4.png"></details><hr>
 
+## SEO and Marketing Strategies
 
 
+---
 
+## Database Design
+
+
+---
+
+## Wireframes
+The wireframes were created using Balsamiq
+
+<details><summary>Balsamiq</summary><img src="read_img/balsamiq_wireframe.png"></details><hr>
+
+---
+
+## Future Enhancements
+
+---
+
+## Acknowledgments
+
+---
 
 
 
