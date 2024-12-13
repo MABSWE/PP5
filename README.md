@@ -290,6 +290,8 @@ The wireframes were created using Balsamiq
 
 ## Acknowledgments
 
+Special thanks to Thomas and Holly from Student Support for their invaluable assistance in helping me overcome coding challenges. Their guidance and support were instrumental in keeping me on track when I encountered difficulties.
+
 ---
 
 
