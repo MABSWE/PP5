@@ -105,6 +105,8 @@ This project was built as part of my portfolio for the [Diploma in Full Stack So
 - CSS3
 - Bootstrap 5
 - JavaScript
+- Font Awesome (Icons)
+- Google Fonts (Typography)
 
 ### Backend
 - Python 3
@@ -116,6 +118,14 @@ This project was built as part of my portfolio for the [Diploma in Full Stack So
 - Render (Deployment)
 - GitPod & GitHub (Version control)
 - Balsamiq (Wireframe design)
+
+### Validation Tools
+- WC3 HTML Validator
+- Jigsaw CSS Validator
+- JShint (JavaScript Validation)
+- Pycodestyle (PEP8 Compliance)
+- Lighthouse (Performance and SEO Testing)
+
 
 ---
 
@@ -269,16 +279,69 @@ Service was used to check the Python code
 
 ## SEO and Marketing Strategies
 
-
 ---
 
-## Database Design
+## Database
+- Built with Python and the Django framework, utilizing PostgreSQL for the deployed Render version (production).
+- The database schema supports an e-commerce platform with detailed product categorization and user data management.
 
+### User Model
+The User Model contains the following fields:
+
+- id (Primary Key)
+- username
+- email
+- password
+- first_name
+- last_name
+- is_staff (Admin flag)
+- is_active
+- last_login
+- date_joined
+
+### Product Model
+The Product Model contains the following fields:
+
+- id (Primary Key)
+- name
+- description
+- price
+- image
+- category (ForeignKey to Category)
+- rating
+- sku (Stock Keeping Unit)
+- updated_at
+
+### Category Model
+The Category Model contains the following fields:
+
+- id (Primary Key)
+- name
+- friendly_name
+
+### Order Model
+The Order Model contains the following fields:
+
+- id (Primary Key)
+- user (ForeignKey to User)
+- total_price
+- created_at
+- updated_at
+- status
+
+### OrderItem Model
+The OrderItem Model contains the following fields:
+
+- id (Primary Key)
+- order (ForeignKey to Order)
+- product (ForeignKey to Product)
+- quantity
+- price
 
 ---
 
 ## Wireframes
-The wireframes were created using Balsamiq
+The wireframes for the project were created using Balsamiq, focusing on responsive design for desktop, tablet, and mobile views.
 
 <details><summary>Balsamiq</summary><img src="read_img/balsamiq_wireframe.png"></details><hr>
 
