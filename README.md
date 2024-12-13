@@ -277,7 +277,54 @@ Service was used to check the Python code
 <details><summary>Running autopep8 --in-place --aggressive --aggressive **/*.py</summary><img src="read_img/pep8_3.png"></details><hr>
 <details><summary>Manual fix</summary><img src="read_img/pep8_4.png"></details><hr>
 
+### Lighthouse Validation
+Used Lighthouse as validation for smartphones
+<details><summary>Lighthouse Results</summary><img src="read_img/lighthouse_val.png"></details><hr>
+
+---
+
 ## SEO and Marketing Strategies
+
+### Search Engine Optimization (SEO)
+
+1. Meta Tags:
+   - Included meta descriptions, keywords, and Open Graph tags for all pages to improve search engine visibility and social sharing.
+
+2. Sitemap:
+   - Generated a sitemap to ensure proper crawling and indexing by search engines.
+
+3. robots.txt:
+   - Configured to manage search engine bot access effectively.
+
+4. Descriptive URLs:
+   - Used clear, human-readable URLs for all products and pages to improve usability and SEO.
+
+5. 404 Page:
+   - Implemented a custom 404 error page with helpful navigation links to guide users back to the site.
+
+### Marketing Strategies
+
+1. Social Media Integration:
+   - Created and linked social media accounts such as Instagram and TikTok to drive traffic and engage with users.
+   - Added social sharing buttons on product pages to encourage organic growth.
+   - Added Facebook Business page Mockup
+   <details><summary>Facebook</summary><img src="read_img/facebook_mockup.png"></details><hr>
+
+
+2. Newsletter Signup:
+   - Integrated a newsletter subscription form to capture user emails for future promotions and updates.
+
+3. Special Offers Page:
+   - Highlighted exclusive discounts and promotions to attract and retain customers.
+
+4. Google Maps:
+   - Embedded a Google Map on the contact page for location-based visibility and improved user experience.
+
+5. Branding Consistency:
+   - Ensured consistent use of logos, colors, and typography across all pages for professional appeal.
+
+6. Mobile Optimization:
+   - Ensured the site is fully responsive, providing an excellent experience on all devices to capture a larger audience.
 
 ---
 
