@@ -118,6 +118,7 @@ This project was built as part of my portfolio for the [Diploma in Full Stack So
 - Render (Deployment)
 - GitPod & GitHub (Version control)
 - Balsamiq (Wireframe design)
+- AWS S3
 
 ### Validation Tools
 - WC3 HTML Validator
