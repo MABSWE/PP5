@@ -14,7 +14,7 @@
 - [Deployment](#deployment)
 - [Testing](#testing)
 - [SEO and Marketing Strategies](#seo-and-marketing-strategies)
-- [Database Design](#database-design)
+- [Database](#database)
 - [Wireframes](#wireframes)
 - [Future Enhancements](#future-enhancements)
 - [Acknowledgments](#acknowledgments)
@@ -245,13 +245,13 @@ This application has been deployed using [Render](https://render.com/). Below ar
 
 ## HTML Validation
 W3C was used for validating html code
-<details><summary>Home</summary><img src="read_img/staticfiles.json.png"></details><hr>
-<details><summary>Glue</summary><img src="read_img/staticfiles.json.png"></details><hr>
-<details><summary>Lashes</summary><img src="read_img/staticfiles.json.png"></details><hr>
-<details><summary>Other</summary><img src="read_img/staticfiles.json.png"></details><hr>
-<details><summary>Products</summary><img src="read_img/staticfiles.json.png"></details><hr>
-<details><summary></summary><img src="read_img/staticfiles.json.png"></details><hr>
-<details><summary></summary><img src="read_img/staticfiles.json.png"></details><hr>
+<details><summary>Home</summary><img src="read_img/.png"></details><hr>
+<details><summary>Glue</summary><img src="read_img/.png"></details><hr>
+<details><summary>Lashes</summary><img src="read_img/.png"></details><hr>
+<details><summary>Other</summary><img src="read_img/.png"></details><hr>
+<details><summary>Products</summary><img src="read_img/.png"></details><hr>
+<details><summary></summary><img src="read_img/.png"></details><hr>
+<details><summary></summary><img src="read_img/.png"></details><hr>
 
 
 ## JavaScript Validation
