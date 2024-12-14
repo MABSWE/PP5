@@ -1,10 +1,10 @@
 # Skönhetsbutiken - E-commerce Application
 
 
-![Project Mockup](static/img/mockup.png)
+![Project Mockup](static/img/mockup2.png)
 
 ### Live Link:
-[Skönhetsbutiken](https://pp5.onrender.com)
+💻[Skönhetsbutiken](https://pp5.onrender.com)
 
 ## Table of Contents
 - [About the Project](#about-the-project)
@@ -23,12 +23,9 @@
 
 ## About the Project
 Skönhetsbutiken is a full-stack e-commerce application designed for users to browse, purchase, and manage beauty products like lashes, glue, and other accessories. It provides an intuitive shopping experience with a modern design, secure authentication, and integrated payment processing.
-
 This project was built as part of my portfolio for the [Diploma in Full Stack Software Development](https://www.codeinstitute.net/) to demonstrate my proficiency in building scalable web applications.
 
-
-
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## Features
 ### Core Features
@@ -127,7 +124,7 @@ To provide an optimal user experience, the following principles were adhered to:
 4. **Accessibility**: Make sure the site is accessible to all users, including those with disabilities.
 5. **Visual Appeal**: Use high-quality images and a consistent design language to create an appealing visual experience.
 
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## Technologies Used
 ### Frontend
@@ -157,26 +154,20 @@ To provide an optimal user experience, the following principles were adhered to:
 - Pycodestyle (PEP8 Compliance)
 - Lighthouse (Performance and SEO Testing)
 
-
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## Deployment
 
 This application has been deployed using [Render](https://render.com/). Below are the steps to deploy the project:
 
----
 
 ### Step 1: Create a Render Account
 - Visit [Render](https://render.com/) and sign up for an account if you don't already have one.
-
----
 
 ### Step 2: Create a New Web Service
 1. Go to the **Dashboard** in Render.
 2. Click on **New** and select **Web Service**.
 3. Connect your GitHub repository to Render and select the repository for your project.
-
----
 
 ### Step 3: Configure the Web Service
 - Set the following options:
@@ -192,23 +183,15 @@ This application has been deployed using [Render](https://render.com/). Below ar
     gunicorn your_project_name.wsgi
     ```
 
----
-
 ### Step 4: Set Environment Variables
 - In the **Environment** section, add the following variables: SECRET_KEY=<your-secret-key> DEBUG=False ALLOWED_HOSTS=your-app-name.herokuapp.com STRIPE_PUBLIC_KEY=<your-stripe-public-key> STRIPE_SECRET_KEY=<your-stripe-secret-key>
-
----
 
 ### Step 5: Prepare Your Local Environment
 - Install dependencies: pip install dj-database-url psycopg2-binary gunicorn
 - Update your `requirements.txt`: pip freeze > requirements.txt
 
----
-
 ### Step 6: Create a Procfile
 - In your project root, create a `Procfile` with the following content: web: gunicorn your_project_name.wsgi
-
----
 
 ### Step 7: Add a Database Resource
 - In Render, navigate to your **Dashboard** and select your service.
@@ -216,16 +199,12 @@ This application has been deployed using [Render](https://render.com/). Below ar
 - Note the `DATABASE_URL` generated for the database.
 - Add the `DATABASE_URL` to your **Environment Variables** in the Render **Settings**.
 
----
-
 ### Step 8: Run Database Migrations
 - Open the **Shell** in Render or use your local terminal.
 - Run the following commands:
   ```bash
   python manage.py makemigrations
   python manage.py migrate
-
----
 
 ### Step 9: Configure Static Files
 - Ensure your Django project is set up to handle static files correctly:
@@ -240,14 +219,10 @@ This application has been deployed using [Render](https://render.com/). Below ar
     ```
 - Push the changes to your repository.
 
----
-
 ### Step 10: Enable Automatic Deployments
 - In Render, navigate to your service's **Settings**.
 - Under the **Deploy** section, link your app to your GitHub repository.
 - Enable **Automatic Deploys** so that any push to the selected branch triggers a deployment.
-
----
 
 ### Step 11: Add a Custom Domain (Optional)
 - To use a custom domain:
@@ -259,8 +234,6 @@ This application has been deployed using [Render](https://render.com/). Below ar
      ```
   4. Configure your domain registrar to point to Render by adding the necessary DNS records.
 
----
-
 ### Step 12: Test the Application
 - Access your app at the default Render URL or your custom domain (if configured).
 - Check all functionality, including:
@@ -270,7 +243,7 @@ This application has been deployed using [Render](https://render.com/). Below ar
   - Responsiveness on different devices
 - Troubleshoot any issues by checking the **Logs** in the Render dashboard.
 
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## Testing
 
@@ -281,7 +254,7 @@ W3C was used for validating html code
 The warnings and errors encountered when validating my Django templates are not actual issues in the code but occur because HTML validators cannot interpret Django template syntax correctly. Django uses special template tags, such as `{{ variable }}` and `{% block %}`, to dynamically generate content on the server side. These tags are replaced with valid HTML when the page is rendered in a Django environment.
 Consider adding a lang attribute to the html start tag to declare the language of this document.
 
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## JavaScript Validation
 JSHint JS Validation Service
@@ -310,7 +283,7 @@ Service was used to check the Python code
 Used Lighthouse as validation for smartphones
 <details><summary>Lighthouse Results</summary><img src="read_img/lighthouse_val.png"></details><hr>
 
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## SEO and Marketing Strategies
 
@@ -339,7 +312,6 @@ Used Lighthouse as validation for smartphones
    - Added Facebook Business page Mockup
    <details><summary>Facebook</summary><img src="read_img/facebook_mockup.png"></details><hr>
 
-
 2. Newsletter Signup:
    - Integrated a newsletter subscription form to capture user emails for future promotions and updates.
 
@@ -355,7 +327,7 @@ Used Lighthouse as validation for smartphones
 6. Mobile Optimization:
    - Ensured the site is fully responsive, providing an excellent experience on all devices to capture a larger audience.
 
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## Database
 - Built with Python and the Django framework, utilizing PostgreSQL for the deployed Render version (production).
@@ -414,14 +386,14 @@ The OrderItem Model contains the following fields:
 - quantity
 - price
 
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## Wireframes
 The wireframes for the project were created using Balsamiq, focusing on responsive design for desktop, tablet, and mobile views.
 
 <details><summary>Balsamiq</summary><img src="read_img/balsamiq_wireframe.png"></details><hr>
 
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## Future Enhancements
 
@@ -437,13 +409,13 @@ The wireframes for the project were created using Balsamiq, focusing on responsi
 10. **Increase Performance**: Implement techniques and best practices to boost the performance scores and ensure a more responsive site.
 11. **Lighthouse Performance**: Aim for better results from Lighthouse audits by addressing issues related to performance, accessibility, best practices, and SEO.
 
----
+##### Back to [top](#table-of-contents)<hr>
 
 ## Acknowledgments
 
 Special thanks to Thomas and Holly from Student Support for their invaluable assistance in helping me overcome coding challenges. Their guidance and support were instrumental in keeping me on track when I encountered difficulties.
 
----
+##### Back to [top](#table-of-contents)<hr>
 
 
 
