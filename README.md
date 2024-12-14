@@ -276,14 +276,12 @@ This application has been deployed using [Render](https://render.com/). Below ar
 
 ## HTML Validation
 W3C was used for validating html code
-<details><summary>Home</summary><img src="read_img/.png"></details><hr>
-<details><summary>Glue</summary><img src="read_img/.png"></details><hr>
-<details><summary>Lashes</summary><img src="read_img/.png"></details><hr>
-<details><summary>Other</summary><img src="read_img/.png"></details><hr>
-<details><summary>Products</summary><img src="read_img/.png"></details><hr>
-<details><summary></summary><img src="read_img/.png"></details><hr>
-<details><summary></summary><img src="read_img/.png"></details><hr>
+<details><summary>Error</summary><img src="read_img/error_lash.png"></details><hr>
 
+The warnings and errors encountered when validating my Django templates are not actual issues in the code but occur because HTML validators cannot interpret Django template syntax correctly. Django uses special template tags, such as `{{ variable }}` and `{% block %}`, to dynamically generate content on the server side. These tags are replaced with valid HTML when the page is rendered in a Django environment.
+Consider adding a lang attribute to the html start tag to declare the language of this document.
+
+---
 
 ## JavaScript Validation
 JSHint JS Validation Service
