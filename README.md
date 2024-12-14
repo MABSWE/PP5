@@ -97,6 +97,36 @@ This project was built as part of my portfolio for the [Diploma in Full Stack So
 3. **User Management**
    - As an admin, I want to access user profiles so that I can help users with account-related issues.
 
+## User Goals
+
+This project aims to satisfy several key user goals:
+
+1. **Ease of Use**: Provide a user-friendly interface that allows users to navigate and find products easily.
+2. **Informative Content**: Offer detailed product descriptions and images to help users make informed decisions.
+3. **Efficient Checkout**: Ensure a streamlined and secure checkout process.
+4. **Customer Support**: Offer accessible customer support for any issues or questions.
+5. **Mobile Accessibility**: Ensure the site is fully functional and responsive on mobile devices.
+
+## Site Owner Goals
+
+For the site owner, the primary goals include:
+
+1. **Manage Inventory**: Easily add, edit, and remove products.
+2. **User Management**: Efficiently manage user accounts and permissions.
+3. **Order Tracking**: Monitor and fulfill orders promptly.
+4. **Analytics and Reporting**: Track sales data and performance metrics to make informed business decisions.
+5. **Promotions and Updates**: Update content to reflect current promotions and maintain user engagement.
+
+## User Experience (UX)
+
+To provide an optimal user experience, the following principles were adhered to:
+
+1. **Responsive Design**: Ensure the website works well on all devices (desktops, tablets, smartphones).
+2. **Intuitive Navigation**: Design a clear and logical navigation structure.
+3. **Fast Loading Times**: Optimize website performance to reduce loading times.
+4. **Accessibility**: Make sure the site is accessible to all users, including those with disabilities.
+5. **Visual Appeal**: Use high-quality images and a consistent design language to create an appealing visual experience.
+
 ---
 
 ## Technologies Used
