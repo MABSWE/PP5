@@ -435,6 +435,9 @@ The wireframes for the project were created using Balsamiq, focusing on responsi
 6. **Real-time Stock Updates**: Display live product availability status to customers.
 7. **User Profiles with Order History**: Enhance user profiles to include detailed order histories and preferences.
 8. **Mobile Application**: Develop a mobile app version of the platform for iOS and Android to reach a broader audience.
+9. **Improve Efficiency**: Work on optimizing the overall performance of the website to provide a smoother and faster user experience.
+10. **Increase Performance**: Implement techniques and best practices to boost the performance scores and ensure a more responsive site.
+11. **Lighthouse Performance**: Aim for better results from Lighthouse audits by addressing issues related to performance, accessibility, best practices, and SEO.
 
 ---
 
